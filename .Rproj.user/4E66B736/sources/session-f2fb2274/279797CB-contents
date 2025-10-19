@@ -1,0 +1,195 @@
+---
+title: "SCD Graphs"
+format:
+  html:
+    toc: false
+    theme: default
+    df-print: paged
+    include-in-header: |
+      <style>
+        body { font-family: "Times New Roman", Times, serif; }
+      </style>
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+# ------------------------------------------------------
+# Setup
+# ------------------------------------------------------
+knitr::opts_chunk$set(fig.width = 10, fig.height = 6, dpi = 300, dev = "png")
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(stringr)
+library(scales)
+library(grid)
+
+# Fonts (Times New Roman via showtext if available)
+use_showtext <- requireNamespace("showtext", quietly = TRUE)
+if (use_showtext) {
+  library(showtext)
+  showtext_auto(enable = TRUE)
+  showtext_opts(dpi = 300)
+}
+
+get_times_family <- function() {
+  if (requireNamespace("systemfonts", quietly = TRUE)) {
+    fi <- try(systemfonts::match_font("Times New Roman"), silent = TRUE)
+    if (!inherits(fi, "try-error") && !is.null(fi$family) && nchar(fi$family)) return("Times New Roman")
+    fi2 <- try(systemfonts::match_font("Times"), silent = TRUE)
+    if (!inherits(fi2, "try-error") && !is.null(fi2$family) && nchar(fi2$family)) return("Times")
+  }
+  "serif"
+}
+BASE_FAMILY <- get_times_family()
+cat("Using font family for plots:", BASE_FAMILY, "\n")
+
+# ------------------------------------------------------
+# Helpers
+# ------------------------------------------------------
+read_clean <- function(path) {
+  read_csv(path, show_col_types = FALSE) |>
+    clean_names() |>
+    transmute(
+      participant = as.character(participant),
+      week        = as.numeric(week),
+      condition   = as.character(condition),
+      outcome     = as.numeric(outcome)
+    ) |>
+    arrange(participant, week)
+}
+
+# All phase changes (Baseline->Intervention bold; Intervention->Follow-up dashed)
+phase_lines_all <- function(dat) {
+  dat |>
+    mutate(cond_low = str_to_lower(condition)) |>
+    group_by(participant) |>
+    arrange(week, .by_group = TRUE) |>
+    mutate(prev_cond = lag(cond_low),
+           prev_week = lag(week)) |>
+    filter(!is.na(prev_cond) & cond_low != prev_cond) |>
+    mutate(
+      xmid = prev_week + 0.5,
+      type = case_when(
+        str_detect(cond_low, "follow") | str_detect(cond_low, "maintain") ~ "followup",
+        TRUE ~ "intervention"
+      )
+    ) |>
+    select(participant, xmid, type) |>
+    ungroup()
+}
+
+# Break only at condition changes (not at missing weeks)
+add_segments_runs <- function(dat) {
+  dat |>
+    group_by(participant) |>
+    arrange(week, .by_group = TRUE) |>
+    mutate(
+      cond_lag = lag(condition, default = first(condition)),
+      segment  = 1L + cumsum(condition != cond_lag)
+    ) |>
+    ungroup()
+}
+
+# Plotter with fixed axes + TNR + padding
+plot_mb_fixed <- function(dat, title, ylab,
+                          x_limits, y_limits, y_breaks,
+                          base_family = BASE_FAMILY) {
+  dat <- dat |> filter(!is.na(outcome))
+  vlines <- phase_lines_all(dat)
+  dat    <- add_segments_runs(dat)
+
+  y0 <- y_limits[1]; y1 <- y_limits[2]
+
+  ggplot(dat, aes(week, outcome)) +
+    geom_segment(
+      data = vlines |> filter(type == "intervention"),
+      aes(x = xmid, xend = xmid, y = y0, yend = y1),
+      inherit.aes = FALSE, color = "black", linewidth = 1.2
+    ) +
+    geom_segment(
+      data = vlines |> filter(type == "followup"),
+      aes(x = xmid, xend = xmid, y = y0, yend = y1),
+      inherit.aes = FALSE, color = "black", linewidth = 0.9, linetype = 2
+    ) +
+    geom_line(aes(group = interaction(participant, segment)),
+              color = "#007030", linewidth = 0.9, alpha = 0.9) +
+    geom_point(shape = 21, size = 2.4, stroke = 0.7,
+               color = "#104735", fill = "#FEE11A") +
+    facet_wrap(~ participant, ncol = 1, scales = "fixed") +
+    scale_x_continuous(
+      limits = x_limits,
+      breaks = seq(x_limits[1], x_limits[2], by = 1),
+      expand = expansion(mult = c(0.01, 0.01))
+    ) +
+    scale_y_continuous(
+      limits = y_limits,
+      breaks = y_breaks,
+      expand = expansion(mult = c(0.02, 0.04))
+    ) +
+    labs(title = title, x = "Week", y = ylab) +
+    theme_minimal(base_size = 13, base_family = base_family) +
+    theme(
+      plot.title   = element_text(face = "bold", size = 18, hjust = 0.5),
+      strip.text   = element_text(face = "bold", size = 12),
+      axis.text.y  = element_text(size = 12, margin = margin(r = 8)),
+      axis.text.x  = element_text(size = 12),
+      axis.title.y = element_text(margin = margin(r = 12), size = 13),
+      panel.grid.minor = element_blank(),
+      panel.spacing.y  = unit(12, "pt"),
+      plot.margin = margin(t = 10, r = 20, b = 12, l = 38)
+    ) +
+    coord_cartesian(xlim = x_limits, ylim = y_limits, clip = "off")
+}
+```
+
+## Time to 100% Accuracy
+
+```{r}
+dat_time <- read_clean("data_time.csv")
+p_time <- plot_mb_fixed(
+  dat_time,
+  title    = "Time to 100% Accuracy",
+  ylab     = "Time to 100% accuracy (minutes)",
+  x_limits = c(1, 16),
+  y_limits = c(0, 15),
+  y_breaks = seq(0, 15, by = 3)   # less crowded: 0,3,6,9,12,15
+)
+p_time
+
+```
+
+## Quality of Written Interpretation
+
+```{r}
+dat_written <- read_clean("data_written.csv")
+p_written <- plot_mb_fixed(
+  dat_written,
+  title    = "Quality of Written Interpretation",
+  ylab     = "Written interpretation rubric score",
+  x_limits = c(1, 16),
+  y_limits = c(0, 14),
+  y_breaks = seq(0, 14, by = 2)   # less crowded: 0,2,4,...,14
+)
+p_written
+```
+
+## Number of Attempts
+
+```{r}
+dat_attempts <- read_clean("data_attempts.csv")
+p_attempts <- plot_mb_fixed(
+  dat_attempts,
+  title    = "Number of Attempts",
+  ylab     = "Attempts to reach 100%",
+  x_limits = c(1, 16),
+  y_limits = c(0, 5),
+  y_breaks = 0:5
+)
+p_attempts
+```

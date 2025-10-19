@@ -1,0 +1,114 @@
+---
+title: "updatedverbalscores"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+
+# === Colors: keep your original yellow/green; Week 1 is gray ===
+uo_yellow <- "#FEE123"   # replace if you used a different yellow
+uo_green  <- "#00503C"   # replace if you used a different green
+wk1_gray  <- "grey70"    # Week 1 gray
+
+# === Read your updated CSV ===
+# Update path if needed:
+df <- readr::read_csv("verbal_scores.csv", show_col_types = FALSE)
+
+# --- Normalize to LONG format, preserving only Weeks 1, 3, 5 ---
+name_lc <- tolower(names(df))
+
+is_long <- any(name_lc %in% c("week","weeklabel")) &&
+           any(name_lc %in% c("totalscore","score","value"))
+
+if (is_long) {
+  week_col <- names(df)[name_lc %in% c("week","weeklabel")][1]
+  score_col <- names(df)[name_lc %in% c("totalscore","score","value")][1]
+  part_col  <- names(df)[name_lc %in% c("participant","id","name")][1]
+
+  long <- df |>
+    rename(
+      Week        = all_of(week_col),
+      TotalScore  = all_of(score_col),
+      Participant = all_of(part_col)
+    ) |>
+    mutate(
+      Week = as.character(Week),
+      Week = tolower(trimws(Week)),
+      Week = dplyr::recode(Week,
+        "week 1" = "Week 1", "week1" = "Week 1", "w1" = "Week 1", "1" = "Week 1",
+        "week 3" = "Week 3", "week3" = "Week 3", "w3" = "Week 3", "3" = "Week 3",
+        "week 5" = "Week 5", "week5" = "Week 5", "w5" = "Week 5", "5" = "Week 5"
+      )
+    )
+} else {
+  # WIDE format expected: Participant, Week1, Week3, Week5 (any capitalization ok)
+  part_col <- names(df)[name_lc %in% c("participant","id","name")][1]
+  w1 <- names(df)[name_lc %in% c("week1","w1","wk1")][1]
+  w3 <- names(df)[name_lc %in% c("week3","w3","wk3")][1]
+  w5 <- names(df)[name_lc %in% c("week5","w5","wk5")][1]
+
+  long <- df |>
+    rename(Participant = all_of(part_col)) |>
+    pivot_longer(
+      cols = c(all_of(w1), all_of(w3), all_of(w5)),
+      names_to = "Week",
+      values_to = "TotalScore"
+    ) |>
+    mutate(
+      Week = tolower(Week),
+      Week = dplyr::recode(Week,
+        "week1" = "Week 1", "w1" = "Week 1", "wk1" = "Week 1",
+        "week3" = "Week 3", "w3" = "Week 3", "wk3" = "Week 3",
+        "week5" = "Week 5", "w5" = "Week 5", "wk5" = "Week 5"
+      )
+    )
+}
+
+# Keep exactly Weeks 1, 3, 5 in that order
+long <- long |>
+  filter(Week %in% c("Week 1","Week 3","Week 5")) |>
+  mutate(
+    Week = factor(Week, levels = c("Week 1","Week 3","Week 5")),
+    TotalScore = suppressWarnings(as.numeric(TotalScore))
+  )
+
+# --- Build the plot: same style, just adds Week 1 as gray ---
+y_min <- 0; y_max <- 21
+p <- ggplot(long, aes(x = Participant, y = TotalScore, fill = Week)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  # Horizontal cut lines
+  geom_hline(yintercept = 7,  linetype = "dashed") +
+  geom_hline(yintercept = 11, linetype = "dashed") +
+  geom_hline(yintercept = 17, linetype = "dashed") +
+  # Right-side labels for ranges (allow margin for text)
+  coord_cartesian(ylim = c(y_min, y_max), clip = "off") +
+  annotate("text", x = Inf, y = 9,  label = "Beginner (7–10)",     hjust = 1.02, vjust = 0.5) +
+  annotate("text", x = Inf, y = 13, label = "Intermediate (11–16)", hjust = 1.02, vjust = 0.5) +
+  annotate("text", x = Inf, y = 19, label = "Advanced (17–21)",     hjust = 1.02, vjust = 0.5) +
+  # Keep your original title/axes
+  labs(
+    title = "Verbal Description Scores (Week 3 vs Week 5)",
+    x = "Participant",
+    y = "Total Score (0–21 rubric)"
+  ) +
+  # Preserve your minimal look; adjust base_family if you used a specific font
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    legend.title = element_text(face = "bold"),
+    plot.title.position = "plot",
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    plot.margin = margin(10, 30, 10, 10) # extra right space for labels
+  ) +
+  # EXACT legend order and colors: Week 1 (gray), Week 3 (yellow), Week 5 (green)
+  scale_fill_manual(
+    name   = "Week",
+    breaks = c("Week 1","Week 3","Week 5"),
+    values = c("Week 1" = wk1_gray, "Week 3" = uo_yellow, "Week 5" = uo_green)
+  )
+
+p
+
+```

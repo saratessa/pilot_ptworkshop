@@ -1,0 +1,140 @@
+---
+title: "Verbal Description Scores"
+format:
+  html:
+    theme: default
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+
+library(ggplot2)
+
+
+col_week3 <- "#FEE123"  # UO Yellow
+col_week5 <- "#154733"  # UO Dark Green
+
+
+base_family <- "Times"
+
+
+cut_begin_min <- 7
+cut_begin_max <- 10
+cut_inter_max <- 16
+rubric_max    <- 21
+
+
+raw <- read.csv("verbal_scores.csv", stringsAsFactors = FALSE, check.names = FALSE)
+ln  <- tolower(names(raw))
+
+
+to_long <- function(df, part_col, week_col, score_col) {
+  out <- data.frame(
+    Participant = as.character(df[[part_col]]),
+    WeekLabel   = as.character(df[[week_col]]),
+    TotalScore  = suppressWarnings(as.numeric(df[[score_col]])),
+    stringsAsFactors = FALSE
+  )
+  out
+}
+
+p_idx <- which(ln %in% c("participant","participant_id","name","label","id"))
+w_idx <- which(ln %in% c("week","week_label","timepoint","time_point","session"))
+s_idx <- which(ln %in% c("totalscore","total_score","score","total","points","rubric_total"))
+
+if (length(p_idx) >= 1 && length(w_idx) >= 1 && length(s_idx) >= 1) {
+  long <- to_long(raw, p_idx[1], w_idx[1], s_idx[1])
+
+} else {
+
+  w3_idx <- which(ln %in% c("week3","week_3","w3","week 3","wk3"))
+  w5_idx <- which(ln %in% c("week5","week_5","w5","week 5","wk5"))
+  if (length(p_idx) >= 1 && length(w3_idx) >= 1 && length(w5_idx) >= 1) {
+    part <- as.character(raw[[p_idx[1]]])
+    week3 <- suppressWarnings(as.numeric(raw[[w3_idx[1]]]))
+    week5 <- suppressWarnings(as.numeric(raw[[w5_idx[1]]]))
+    long <- rbind(
+      data.frame(Participant = part, WeekLabel = "Week 3", TotalScore = week3, stringsAsFactors = FALSE),
+      data.frame(Participant = part, WeekLabel = "Week 5", TotalScore = week5, stringsAsFactors = FALSE)
+    )
+  } else {
+    stop("Cannot detect columns. Use either LONG format (Participant, Week/Timepoint, TotalScore) or WIDE format (Participant, Week3, Week5).")
+  }
+}
+
+
+norm_week <- function(x) {
+  xl <- tolower(trimws(x))
+  xl <- gsub("_", " ", xl)
+  ifelse(grepl("5$", xl) | grepl("week 5|wk5|w5", xl), "Week 5",
+         ifelse(grepl("3$", xl) | grepl("week 3|wk3|w3", xl), "Week 3", x))
+}
+long$WeekLabel <- norm_week(long$WeekLabel)
+
+
+long <- long[long$WeekLabel %in% c("Week 3","Week 5"), , drop = FALSE]
+
+
+long$Participant <- factor(long$Participant, levels = unique(long$Participant))
+
+long$WeekLabel   <- factor(long$WeekLabel, levels = c("Week 3","Week 5"))
+
+
+band_df <- data.frame(
+  y_min = c(cut_begin_min, cut_begin_max,       cut_inter_max),
+  y_max = c(cut_begin_max, cut_inter_max,       rubric_max),
+  label = c("Beginner (7–10)", "Intermediate (11–16)", "Advanced (17–21)")
+)
+
+```
+
+```{r}
+ggplot(long, aes(x = Participant, y = TotalScore, fill = WeekLabel)) +
+  # Background bands (very light)
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = band_df$y_min[1], ymax = band_df$y_max[1], alpha = 0.05) +
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = band_df$y_min[2], ymax = band_df$y_max[2], alpha = 0.05) +
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = band_df$y_min[3], ymax = band_df$y_max[3], alpha = 0.05) +
+
+  # Grouped bars (two per participant)
+  geom_col(position = position_dodge(width = 0.7), width = 0.65, color = NA) +
+
+  # Cutoff lines
+  geom_hline(yintercept = cut_begin_min, linetype = "dotted") +
+  geom_hline(yintercept = cut_begin_max, linetype = "dashed") +
+  geom_hline(yintercept = cut_inter_max, linetype = "dashed") +
+
+  # Right-edge labels for bands
+  annotate("text", x = Inf, y = (cut_begin_min + cut_begin_max)/2,
+           label = "Beginner (7–10)", hjust = 1.04, vjust = -0.1, family = base_family) +
+  annotate("text", x = Inf, y = (cut_begin_max + cut_inter_max)/2,
+           label = "Intermediate (11–16)", hjust = 1.04, vjust = -0.1, family = base_family) +
+  annotate("text", x = Inf, y = (cut_inter_max + rubric_max)/2,
+           label = "Advanced (17–21)", hjust = 1.04, vjust = -0.1, family = base_family) +
+
+  # Two-color palette mapped to Week
+  scale_fill_manual(
+    name = "Week",
+    values = c("Week 3" = col_week3, "Week 5" = col_week5)
+  ) +
+
+  # Y axis 0..21
+  scale_y_continuous(limits = c(0, rubric_max), breaks = 0:rubric_max) +
+
+  labs(
+    title = "Verbal Description Scores (Week 3 vs Week 5)",
+    x = "Participant",
+    y = "Total Score (0–21 rubric)"
+  ) +
+  theme_minimal(base_size = 14, base_family = base_family) +
+  theme(
+    legend.position = "top",
+    legend.title = element_text(face = "bold"),
+    plot.title.position = "plot",
+    axis.text.x = element_text(angle = 30, hjust = 1)
+  )
+
+```

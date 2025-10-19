@@ -1,0 +1,53 @@
+__respondent_id__,question,response_raw,value_3pt,group
+1,How clear and understandable were the recorded lessons?,Somewhat clear,3.0,Components
+2,How clear and understandable were the recorded lessons?,Somewhat clear,3.0,Components
+3,How clear and understandable were the recorded lessons?,Extremely clear,3.0,Components
+4,How clear and understandable were the recorded lessons?,Somewhat clear,3.0,Components
+1,Did you find the guided notes helpful in following along with the recorded lessons?,Very helpful,3.0,Components
+2,Did you find the guided notes helpful in following along with the recorded lessons?,Very helpful,3.0,Components
+3,Did you find the guided notes helpful in following along with the recorded lessons?,Very helpful,3.0,Components
+4,Did you find the guided notes helpful in following along with the recorded lessons?,Very helpful,3.0,Components
+1,Did the recorded lessons prepare you for the quiz content?,Somewhat,3.0,Components
+2,Did the recorded lessons prepare you for the quiz content?,Yes,3.0,Components
+3,Did the recorded lessons prepare you for the quiz content?,Somewhat,3.0,Components
+4,Did the recorded lessons prepare you for the quiz content?,Yes,3.0,Components
+1,How useful was the One-Pager Review?,Moderately useful,3.0,Components
+2,How useful was the One-Pager Review?,Extremely useful,3.0,Components
+3,How useful was the One-Pager Review?,Extremely useful,3.0,Components
+4,How useful was the One-Pager Review?,Moderately useful,3.0,Components
+1,How effective was the live coaching in helping you understand the content?,Very effective,3.0,Components
+2,How effective was the live coaching in helping you understand the content?,Extremely effective,3.0,Components
+3,How effective was the live coaching in helping you understand the content?,Extremely effective,3.0,Components
+4,How effective was the live coaching in helping you understand the content?,Extremely effective,3.0,Components
+1,How effective was the live coaching in helping you improve your fluency?,Extremely effective,3.0,Components
+2,How effective was the live coaching in helping you improve your fluency?,Extremely effective,3.0,Components
+3,How effective was the live coaching in helping you improve your fluency?,Extremely effective,3.0,Components
+4,How effective was the live coaching in helping you improve your fluency?,Extremely effective,3.0,Components
+1,How confident are you in applying what you learned from this workshop series?,Neutral,2.0,Impact
+2,How confident are you in applying what you learned from this workshop series?,Somewhat confident,3.0,Impact
+3,How confident are you in applying what you learned from this workshop series?,Very confident,3.0,Impact
+4,How confident are you in applying what you learned from this workshop series?,,,Impact
+1,"During this workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Rarely,,Impact
+2,"During this workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Yes,3.0,Impact
+3,"During this workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Yes,3.0,Impact
+4,"During this workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",,,Impact
+1,"Since completing the workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Rarely,,Impact
+2,"Since completing the workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Yes,3.0,Impact
+3,"Since completing the workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",Yes,3.0,Impact
+4,"Since completing the workshop series, did you discuss the material you learned with others (peers, colleagues, etc)?",,,Impact
+1,Have you used any of the Precision Teaching (PT) methods from this workshop in your real-life work?,Not at all,1.0,Impact
+2,Have you used any of the Precision Teaching (PT) methods from this workshop in your real-life work?,Not at all,1.0,Impact
+3,Have you used any of the Precision Teaching (PT) methods from this workshop in your real-life work?,Not at all,1.0,Impact
+4,Have you used any of the Precision Teaching (PT) methods from this workshop in your real-life work?,,,Impact
+1,How likely are you to use any of the Precision Teaching (PT) methods from this workshop in your current or future work?,Likely,3.0,Impact
+2,How likely are you to use any of the Precision Teaching (PT) methods from this workshop in your current or future work?,Very likely,3.0,Impact
+3,How likely are you to use any of the Precision Teaching (PT) methods from this workshop in your current or future work?,Likely,3.0,Impact
+4,How likely are you to use any of the Precision Teaching (PT) methods from this workshop in your current or future work?,,,Impact
+1,How satisfied were you with the workshop overall?,Somewhat satisfied,3.0,Impact
+2,How satisfied were you with the workshop overall?,Extremely satisfied,3.0,Impact
+3,How satisfied were you with the workshop overall?,Somewhat satisfied,3.0,Impact
+4,How satisfied were you with the workshop overall?,,,Impact
+1,Would you recommend this workshop to others?,Maybe,2.0,Impact
+2,Would you recommend this workshop to others?,Yes,3.0,Impact
+3,Would you recommend this workshop to others?,Yes,3.0,Impact
+4,Would you recommend this workshop to others?,,,Impact

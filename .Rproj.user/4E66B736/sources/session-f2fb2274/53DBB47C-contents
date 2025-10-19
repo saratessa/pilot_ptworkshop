@@ -1,0 +1,321 @@
+---
+title: "simulation case study"
+format: html
+editor: visual
+---
+
+## responsive case study simulation
+
+You can model a “hidden” learner with parameters (level, celeration, bounce, error rate, opportunities), then update those parameters when students “apply” an intervention. Each cohort (or each student) gets a different seed so the data feels unique, but their intervention choices still produce sensible, responsive changes.
+
+-   Simulates 5 weeks (Mon–Fri) of daily timings for one “case study.”
+
+-   Lets you define which intervention(s) a student applies each week.
+
+-   Updates the underlying learning dynamics in realistic ways (level shift, celeration change, bounce change, error-rate change).
+
+-   Adds natural day-to-day variability.
+
+-   Exports tidy data you can chart on an SCC.
+
+-   run this as-is, then change the `actions_by_week` and the `student_seed` to create different responsive scenarios for different students.
+
+```{r}
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(tidyr)
+  library(purrr)
+  library(stringr)
+  library(ggplot2)
+})
+```
+
+Catalog of interventions and their typical effects --- \# Effects are multiplicative on parameters with some noise so it's not deterministic.
+
+```{r}
+INTERVENTIONS <- list(
+  frequency_building = list(
+    desc = "Daily 1-min timings with immediate feedback + aims",
+    effects = list(
+      correct_cel_mult = 1.15,     # speed up growth of correct
+      incorrect_cel_mult = 0.85,   # speed up decay of incorrect
+      level_shift_correct = 1.10,  # small immediate level bump
+      var_mult = 0.90              # reduce variability
+    )
+  ),
+  error_correction = list(
+    desc = "Triggered error correction (model-lead-test) on top errors",
+    effects = list(
+      incorrect_cel_mult = 0.80,   # steeper reduction of incorrect
+      level_shift_incorrect = 0.90,# immediate fewer errors
+      var_mult = 0.95
+    )
+  ),
+  component_breakdown = list(
+    desc = "Slice back to component skills (easier set)",
+    effects = list(
+      level_shift_correct = 1.20, 
+      correct_cel_mult   = 1.05,
+      incorrect_cel_mult = 0.85,
+      difficulty_shift   = -0.15   # becomes easier; helps initially, may cap aims
+    )
+  ),
+  reinforcement_dense = list(
+    desc = "Denser reinforcement + precise timing goals",
+    effects = list(
+      level_shift_correct = 1.10,
+      var_mult = 0.90
+    )
+  ),
+  prompt_fading = list(
+    desc = "Systematic prompt fading to reduce prompt dependency",
+    effects = list(
+      incorrect_cel_mult = 0.85,
+      var_mult = 0.92
+    )
+  ),
+  adjust_set_size = list(
+    desc = "Reduce item set to increase opportunities per minute",
+    effects = list(
+      level_shift_correct = 1.15,
+      var_mult = 0.93
+    )
+  ),
+  add_timed_opportunities = list(
+    desc = "Increase timings per day (practice opportunities)",
+    effects = list(
+      timings_per_day_delta = +4,  # +4 more timings/day
+      correct_cel_mult = 1.05
+    )
+  )
+)
+```
+
+Initialize a case (hidden learner profile)
+
+```{r}
+init_case <- function(case_id = "Student A", seed = 123,
+                      baseline_correct = 20, baseline_incorrect = 12,
+                      base_cel_up = 1.10, base_cel_down = 0.90,
+                      timing_len_s = 60, timings_per_day = 8) {
+  set.seed(seed)
+```
+
+Hidden learner sensitivity (adds heterogeneity across sections)
+
+```{r}
+sensitivity <- list(
+    to_cel_up   = runif(1, 0.8, 1.2),
+    to_cel_down = runif(1, 0.8, 1.2),
+    to_levels   = runif(1, 0.8, 1.2),
+    to_var      = runif(1, 0.8, 1.2)
+  )
+  
+  state <- list(
+    case_id = case_id,
+    day_index = 0,
+    phase = "Baseline",
+    # expected counts per 1-min timing at day 0
+    mean_correct   = baseline_correct,
+    mean_incorrect = baseline_incorrect,
+    # daily celeration (multiplicative day-to-day change)
+    cel_up   = base_cel_up,
+    cel_down = base_cel_down,
+    # dispersion / variability (affects Poisson-Gamma mixture)
+    var_scale = 0.25,
+    # difficulty scaler (easier < 1; harder > 1)
+    difficulty = 1.0,
+    timing_len_s = timing_len_s,
+    timings_per_day = timings_per_day,
+    sensitivity = sensitivity,
+    history = tibble()
+  )
+  return(state)
+}
+```
+
+Apply intervention choices to state (once per week)
+
+```{r}
+apply_interventions <- function(state, actions = character(), rng = NULL) {
+  if (length(actions) == 0) return(state)
+  if (!is.null(rng)) set.seed(rng)
+```
+
+Aggregate effects across all chosen interventions
+
+```{r}
+eff <- list(
+    correct_cel_mult = 1,
+    incorrect_cel_mult = 1,
+    level_shift_correct = 1,
+    level_shift_incorrect = 1,
+    var_mult = 1,
+    difficulty_shift = 0,
+    timings_per_day_delta = 0
+  )
+  
+  for (a in actions) {
+    if (!a %in% names(INTERVENTIONS)) next
+    e <- INTERVENTIONS[[a]]$effects
+```
+
+add small stochasticity so it’s not gamed
+
+```{r}
+jitter <- function(x, pct = 0.05) x * rnorm(1, mean = 1, sd = pct)
+    
+    eff$correct_cel_mult   <- eff$correct_cel_mult   * (e$correct_cel_mult   %||% 1) %>% jitter()
+    eff$incorrect_cel_mult <- eff$incorrect_cel_mult * (e$incorrect_cel_mult %||% 1) %>% jitter()
+    eff$level_shift_correct   <- eff$level_shift_correct   * (e$level_shift_correct   %||% 1) %>% jitter()
+    eff$level_shift_incorrect <- eff$level_shift_incorrect * (e$level_shift_incorrect %||% 1) %>% jitter()
+    eff$var_mult           <- eff$var_mult           * (e$var_mult           %||% 1) %>% jitter()
+    eff$difficulty_shift   <- eff$difficulty_shift   + (e$difficulty_shift   %||% 0)
+    eff$timings_per_day_delta <- eff$timings_per_day_delta + (e$timings_per_day_delta %||% 0)
+  }
+```
+
+Respect hidden learner sensitivity
+
+```{r}
+sens <- state$sensitivity
+  state$cel_up   <- state$cel_up   * (eff$correct_cel_mult   ^ sens$to_cel_up)
+  state$cel_down <- state$cel_down * (eff$incorrect_cel_mult ^ sens$to_cel_down)
+  state$mean_correct   <- state$mean_correct   * (eff$level_shift_correct   ^ sens$to_levels)
+  state$mean_incorrect <- state$mean_incorrect * (eff$level_shift_incorrect ^ sens$to_levels)
+  state$var_scale <- max(0.05, state$var_scale * (eff$var_mult ^ sens$to_var))
+  state$difficulty <- max(0.6, state$difficulty + eff$difficulty_shift)
+  state$timings_per_day <- max(4, round(state$timings_per_day + eff$timings_per_day_delta))
+  
+  # Update phase label for plotting if you like
+  if (length(actions) > 0) {
+    state$phase <- paste0("Intervention: ", paste(actions, collapse = "+"))
+  }
+  return(state)
+}
+```
+
+draw overdispersed counts (Poisson-Gamma mixture)
+
+```{r}
+r_overdispersed_counts <- function(mean, kappa = 1/state$var_scale) {
+  # kappa is shape; larger = less overdispersion
+  # mean is the Poisson mean; Gamma-poisson mixture => NegBin
+  # Implement via rnbinom parameterization
+  # mean = mu, size = kappa, prob = size / (size + mu)
+  size <- kappa
+  mu   <- pmax(0.01, mean)
+  prob <- size / (size + mu)
+  rnbinom(length(mu), size = size, prob = prob)
+}
+
+```
+
+Simulate a week (5 days by default)
+
+```{r}
+simulate_week <- function(state, week = 1, n_days = 5, class_section = NULL) {
+  out <- vector("list", n_days)
+  for (d in seq_len(n_days)) {
+    state$day_index <- state$day_index + 1
+    # deterministic daily drift via celeration; difficulty scales both means
+    mean_cor <- (state$mean_correct   * (state$cel_up  ^ (state$day_index-1))) / state$difficulty
+    mean_err <- (state$mean_incorrect * (state$cel_down^ (state$day_index-1))) * state$difficulty
+    
+    # small day-level noise and auto-correlation taste
+    day_jit <- rlnorm(1, meanlog = 0, sdlog = 0.05)
+    mean_cor <- mean_cor * day_jit
+    mean_err <- mean_err * (2 - day_jit)
+    
+    # draw multiple timings within the day
+    kappa <- 1/state$var_scale
+    correct   <- rnbinom(state$timings_per_day, size = kappa, mu = pmax(0.1, mean_cor))
+    incorrect <- rnbinom(state$timings_per_day, size = kappa, mu = pmax(0.1, mean_err))
+    
+    out[[d]] <- tibble(
+      case_id = state$case_id,
+      week = week,
+      day = d,
+      timing = seq_len(state$timings_per_day),
+      secs = state$timing_len_s,
+      correct = correct,
+      incorrect = incorrect,
+      total = pmax(1, correct + incorrect),
+      phase = state$phase,
+      section = class_section %||% NA_character_
+    )
+  }
+  week_df <- bind_rows(out)
+  # keep a running history inside state if desired
+  state$history <- bind_rows(state$history, week_df)
+  list(state = state, data = week_df)
+}
+
+`%||%` <- function(x, y) if (is.null(x)) y else x
+
+```
+
+Example: run a 5-week responsive scenario
+
+Instructor setup: same "case" across sections, but different seeds produce variants
+
+```{r}
+case_A <- init_case(case_id = "Case Study: Jay", seed = 2025,
+                    baseline_correct = 18, baseline_incorrect = 14,
+                    base_cel_up = 1.08, base_cel_down = 0.92,
+                    timings_per_day = 8)
+
+# Week 1 (Baseline data you hand out)
+w1 <- simulate_week(case_A, week = 1)
+
+# Suppose a student team chooses interventions after reviewing Week 1:
+student_choice_w2 <- c("frequency_building", "error_correction")
+case_A <- apply_interventions(w1$state, student_choice_w2, rng = 42)
+w2 <- simulate_week(case_A, week = 2)
+
+# Week 3: maybe they add components & more timings
+student_choice_w3 <- c("component_breakdown", "add_timed_opportunities")
+case_A <- apply_interventions(w2$state, student_choice_w3, rng = 43)
+w3 <- simulate_week(case_A, week = 3)
+
+# Week 4: reinforce + fade prompts
+student_choice_w4 <- c("reinforcement_dense", "prompt_fading")
+case_A <- apply_interventions(w3$state, student_choice_w4, rng = 44)
+w4 <- simulate_week(case_A, week = 4)
+
+# Week 5: no changes (or pick something else)
+student_choice_w5 <- character(0)
+case_A <- apply_interventions(w4$state, student_choice_w5, rng = 45)
+w5 <- simulate_week(case_A, week = 5)
+
+all_weeks <- bind_rows(w1$data, w2$data, w3$data, w4$data, w5$data)
+
+# Quick look
+print(all_weeks %>% slice(1:10))
+```
+
+## How you’d run this with a class
+
+1.  **Hand out Week 1 (Baseline)** Run `w1 <- simulate_week(case_A, week = 1)` and export `w1$data` to CSV for students to chart.
+
+2.  **Students choose interventions** Collect their choices (they can pick 0–3 from the keys in `INTERVENTIONS`).
+
+3.  **Apply choices → generate next week** Run `case_A <- apply_interventions(w1$state, c("frequency_building","error_correction"))`\
+
+    then `w2 <- simulate_week(case_A, week = 2)`. Export; repeat weekly.
+
+4.  **Different sections get different variants** Use the same `case_id` but different `seed` in `init_case()`. The hidden sensitivity and noise ensure each section’s learner “responds” a bit differently—even to the same interventions.
+
+5.  **Prevent gaming** Effects include random jitter and hidden sensitivities, so identical choices don’t always yield identical slopes/levels. Students still see principled patterns (e.g., frequency building tends to increase correct celeration and lower variability; error correction tends to accelerate error decay).
+
+## Customize the knobs (quick guide)
+
+-   **Make baseline rougher/smoother**: adjust `var_scale` in `init_case()`.
+
+-   **Make intervention effects stronger/weaker**: tweak multipliers in `INTERVENTIONS`.
+
+-   **Make practice effects bigger**: increase `base_cel_up` (and/or decrease `base_cel_down`).
+
+-   **Change opportunities per day**: set `timings_per_day` initially or via `add_timed_opportunities`.
+
+-   **Make task easier/harder**: `difficulty_shift` in an intervention or `state$difficulty` directly.

@@ -1,0 +1,566 @@
+---
+title: "Developing and Pilot Testing a 5-Week Precision Teaching Workshop"
+author: "Saratessa Palos MA BCBA LBA and 
+Demi Fragale MS BCBA-LBA NY"
+output-file: index.html       
+format:
+  revealjs:
+    theme: [styles.scss]
+    transition: slide
+    footer: "University of Oregon, College of Education"
+    logo: logo.png
+    slide-number: true
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+library(readxl)
+```
+
+## CEU Objectives
+
+<small>
+
+Participants will be able to
+
+**List** the phases of the Multiphase Optimization Strategy (MOST) framework
+
+**Identify** instructional design principles used in the development of the Precision Teaching workshop</small>
+
+::: notes
+These are the CEU objectives
+:::
+
+## <small>**Problem Number One**</small>
+
+PT offers a measurement system that improves decision making quality of practitioners
+
+Studies suggest that PT can effectively improve skill acquisition in children with autism, leading to better retention, endurance, stability, and generalization of learned skills <small> (Wolking, 1980; White 2000; Mannion, 2022; Martinho et al., 2022).</small>
+
+::: notes
+The first motivating problem of my work is that PT gives us a really strong measurement system that helps practitioners make better decisions. We know this from research, precision teachers are more engaged with program data so they make more responsive choices that benefit their clients.
+
+Well how is this a problem? its a problem because even though it’s this powerful system, PT and the use of the Standard Celeration Chart aren’t part of the BACB task list. So, it usually doesn’t get taught in graduate programs. Which means most pre-licensure BCBAs are entering the field without this tool in their training.
+:::
+
+## <small> Problem Number Two</small>
+
+As a field we have strong research-based and evidence-based instructional strategies but there is a lack of research for these methods in an online setting
+
+## <small>**Gap in The Research**</small>
+
+::: center
+![](image1.png)
+:::
+
+::: notes
+This visual is meant to show the gap in the research. What you’re looking at are search results from two databases. The yellow bars are guided notes—also called ASR or active student responding—and the green bars are frequency building.
+
+‘A’ is the initial search. ‘B’ is when we narrow it to articles in college or university settings. And ‘C’ is when we add in the online space.
+
+So you can see, as soon as we get to online instruction, there’s a huge drop-off. There’s really a dearth of research using these kinds of behavioral education methods in online settings.
+
+There is a clear gap in the research but You might wonder why this is a problem
+:::
+
+## <small>**Why is This a Problem?**</small>
+
+::: center
+![](image2.png)
+:::
+
+::: notes
+the majority of pre-licensure BCBAs are being trained in online or hybrid masters programs.
+
+So just a quick note about this data. I want to be clear that this excludes doctoral programs, bachelor’s programs, and master’s programs that are in education or psychology but have a VCS or ABA specialization. What I included here are only programs titled Masters in ABA or Masters in Behavior Analysis.
+
+Because of that, it’s very possible this number is actually an underestimate.
+
+I pulled the data in two ways—first by looking at the ABAI website for programs with accreditation or seeking accreditation, and then by doing a Google search for ‘ABA master’s programs’ and going about five pages deep, making sure not to double count. And if it wasn’t obvious whether a program was online, hybrid, or in person, I emailed them directly to check.
+
+So, given all of that, it’s probably conservative. But even so, at least 54% of pre-licensure BCBAs are doing their training online—and yet we have very little in the way of evidence-based instructional strategies designed specifically for that context.
+:::
+
+## **Aims of This Research Line:**
+
+::: center
+![](image18.png)
+:::
+
+::: notes
+In order to address both of these problems we want to\
+create an optimized and scalable entry level training that can be adopted by online graduate programs or serve as a stand alone module for pre-licensure BCBAs
+
+Research these strategies in the online context to Learn the independent and interaction effects of these under-researched promising behavioral education strategies for online graduate programs 
+
+demonstrate the use of a validated implementation science framework in the development of training programs for prelicensure BCBA’s 
+:::
+
+## 
+
+::: center
+![](image3.png)
+:::
+
+::: notes
+This is the traditional way researchers evaluate a treatment package, this approach can tell you if this package has an effect.
+
+If were using our entry level training as an example the components that go into this are ASR/Guided notes, a on-page review each week, an application case study, and live coaching which includes frequency building activities.
+
+But eventhough using this traditional apprpoach to evaluate our workshop can tell us whether or not it has an effect, it cannot tell us 1. Which components are making positive contributions to the outcome 2. Whether the inclusion of one component has an impact on another. 
+
+its possible one component could drive the whole effect, and another can be removed for optimization, or the inclusion of one component influences the effectiveness of another. This all matters if we want our workshop to be easily scalable and easily adopted by online masters programs.
+:::
+
+------------------------------------------------------------------------
+
+## <small>**Conceptual Framework of This Research Line**</small>
+
+::: center
+![](image4.png)
+:::
+
+::: notes
+this is the multiphase optimization strategy (MOST)
+
+\[walk through the entire flow chart and explain the importance of the continual optimization principle and the resource management principle because those are two points that run throughout each stage and will be highlighted in this talk.
+
+Talk about how from a behavior analysts POV the instructional design and data based decision making will live in the preparation stage and then the optimization stage could be a component analysis. \]
+
+Following the validated implementation science framework, MOST, allows you to first optimize the intervention before evaluating it.
+
+optimizing means achieving a balance of effectiveness against 1. affordability, 2. scalability, and 3. efficiency. The result is interventions that eliminate inactive and unnecessary components, are practical to implement, and offer a good value.
+:::
+
+## <small>**Our Research Line**</small>
+
+::: center
+![](image5.png)
+:::
+
+::: notes
+so this is that MOST framework with our research initiative inside of it. All of the data we are reporting today is from that first preparation stage and will demonstrate how we designed and pilot tested our PT workshop then used the resource management principle and continual optimization principle to refine the design as we gear up for our second pilot study.
+
+The optimization stage will be the work I conduct for my dissertation which will be a factorial experiment and currently we believe the two factors we will select for intervention will be the ASR (guided notes) and Live coaching (frequency building intervention).
+
+\
+Following that work we will decide if this optimized intervention is expected to be sufficiently effective and if no follow resource management principle and go back in to preparation and if yes we will move on to evaluating 
+:::
+
+## <small>Zooming into The Preparation Stage</small>
+
+::: center
+![](image17.png)
+:::
+
+::: notes
+The rest of this presentation is going to sit in the preparation stage of the MOST framework. I’ll walk through the work we’ve done so far—which has really been a lot of pre-work: designing, sourcing, and adapting materials. Then I’ll talk about how we piloted the workshop, the kinds of measures we collected, and how we used those to make data-informed revisions. And finally, I’ll describe what those revisions look like before we move forward for our second pilot study.
+:::
+
+## <small>**Design of The Workshop**</small>
+
+**Pre-work**
+
+::: center
+![](image6.png)
+:::
+
+::: notes
+**Setting Verbal Fluency Standards:**
+
+We recruited 3 precision teachers- I asked precision teachers who were trained and skilled but used PT at differtent levels / in different contexts. One was a BCBA who wasn't regularly charting in his practice but works frequently in school knows how to chart fluently and is trained in PT. One was a PhD doing research in precision teaching, and one was a practitioner with 5 years direct precision teaching and coaching other precision teachers.
+
+Each PT-er Viewed 3 SCCs each and I took a 1-min verbal sample of them describing the learning picture and identifying as many elements of the chart as they could
+
+Verbal descriptions were analyzed at two levels:
+
+• Quantitative level or how many elements per minute were listed (this ranged from 13 to 19 on average)
+
+• Descriptive level or what terminology was used, did the PT-ers make judgements on what changes they would program or do any prediction about how the program would progress based on the data they saw
+
+Based on this, we created a rubric to score participants within three ranges beginners (7-10 rubric score) intermediate (11-16 rubric score) and advanced (17-21 rubric score)
+:::
+
+## <small>Online Instruction</small>
+
+::: center
+![](zoomandcanvas.png)
+:::
+
+::: notes
+Our workshop was 100% remote, we used the LMS canvas as well as zoom video conferencing. Each week participants logged onto their canvas course during baseline they logged on and took a weekly quiz, once they entered the workshop they logged on, watched a video lesson, engaged with a case study on the canvas shell, and then attended a scheduled zoom meeting. Were going to go over how the material for this was designed, sourced or adapted.
+:::
+
+## <small>canvas module structure</small>
+
+::: center
+![](updated%20canvas%20modules.png)
+:::
+
+::: notes
+This is how the canvas layout was set up for each week of the study.
+
+In the yellow cirlce is week 1 lesson module: this one has a lot more material because there is a lot of instructions included. The first four links are related to the case study which I will describe later. The fifth link is the weekly video lesson which were an average of 30 minutes long. and the sixth link is the slides from the live coaching session.
+
+In the green circle is week 2 lesson module: this is what the rest of the lessons looked like they just had that weeks video, that weeks case study data, and the PowerPoint that was used during the live session became available after they attended the live session.
+
+So next were going to go more in detail about the design of each of these elements.
+:::
+
+## <small>**Design of The Workshop**</small>
+
+**Asynchronous Materials: weekly video lessons**
+
+::: center
+![](image7.png)
+:::
+
+:::: notes
+::: center
+We created five instructional videos, and each one had lessons and activities adapted from *The Precision Teaching Book* by Kubina and Yurich. In each video, we also built in a section that used Direct Instruction scripts from Cancio and Maloney. And to make it interactive, we used Panopto so participants had to respond in the moment rather than just passively watch.
+
+Along with the videos, we gave students guided notes packets that matched the video scripts—but with key parts left blank. That way, as they watched, they had to fill in the missing pieces, which kept them actively engaged with the content.
+:::
+::::
+
+## <small>**Design of The Workshop**</small>
+
+**Asynchronous Materials: Guided notes and SCCs**
+
+::: center
+![](image9.png)
+:::
+
+::: notes
+Each participant was mailed a guided notes packet which followed the scripts of those \~30 minute weekly video lessons and they were also given a handful of daily per minute paper charts.
+:::
+
+## <small>**Design of The Workshop**</small>
+
+**Asynchronous Materials: Case study**
+
+::: center
+![](image10.png)
+:::
+
+::: notes
+Now, the case study I talked about earlier. This was an independent application task. Participants were mailed blank standard celeration charts and each week of the workshop they were given data from a “case study client” participants were expected to graph this data on their own without feedback and we would score their completed chart with 5 weeks of data at the end of the study. To create a structured form that would anchor the workshop, and try to ensure skills were applied in authentic context, I first consulted with BCBAs specializing in verbal behavior and created a hypothetical VB-MAPP. Using an AI model, I generated plausible datasets and then refined them with expert clinicians
+:::
+
+## <small>**Synchronous Materials: Structured coaching sessions**</small>
+
+::: center
+![](coaching.png)
+:::
+
+::: notes
+For the live coaching sessions, we kept a really consistent structure each week. After participants had finished that week’s video lesson and quiz, we’d meet together. I’d start by giving them a one-page review of the video, and then we’d do a quick Q&A where they could bring up any questions or things that weren’t clear.
+
+From there, we moved into practice activities—using Melroe’s fluency training materials for chart-reading drills, and Brown’s *Precision Decisions* guide to work through decision-making frameworks. We practiced skills like see/say corrects over errors and see/say timing floors.
+
+At the end of each session, I’d bring in a real chart donated by a clinician and precision teacher that they hadn’t seen before. Participants were asked to describe the learning picture, and I recorded and transcribed their responses. Those verbal descriptions were later scored using a rubric I developed from earlier pre-work analyzing how experienced precision teachers describe learning pictures.
+:::
+
+## <small>Pilot Study 1</small>
+
+::: center
+![](full%20timeline.png)
+:::
+
+::: notes
+Multiple Baseline Design
+
+Participants were students in University of Oregon's Applied Behavior Analysis (ABA) Master of Science program.
+
+Nine students were recruited for this study, two withdrew to participate in MSI, and 3 more withdrew during baseline.
+
+Total N = 4 who we randomized into three “groups” so that participants started the PT workshop at different time points
+:::
+
+## <small>**Measures**</small>
+
+• Time to 100% on SCC Quizzes (weekly, Canvas-based)
+
+• Graphing Accuracy (application task scored with a rubric)
+
+• Written Learning Picture Interpretation (weekly written responses that were scored with a rubric)
+
+• Social Validity Survey (end-of-study)
+
+**Fluency Outcomes**
+
+a\) Timing floors
+
+b\) Corrects/Errors
+
+c\) Verbal descriptions of a learning picture </small>
+
+::: notes
+We collected a variety of measures across the study. Each week, participants completed a quiz in Canvas (baseline and 5 weeks of instruction). They were told to re-take the quiz as many times as needed until they reached 100% accuracy. From that, we got two measures: the time it took to reach 100% and the number of attempts. The quiz itself used a donated clinical SCC, and the very first question was always, ‘Describe the learning picture.’ We scored that written response with a rubric, while the remaining questions focused on chart elements and were multiple choice.
+
+Another measure was graphing accuracy. Each week, participants received client data and notes in Canvas and were told simply to graph it—no instructions or guidance were provided. This was designed as a "structued form" or application check. At the end of the study, they were supposed to mail their completed graphs back to us. Spoiler alert: only one person actually mailed theirs in.
+
+Finally, at the very end of the study, participants completed a social validity survey to give their feedback.
+
+On top of all of that, we tracked fluency outcomes during coaching sessions. These included timing floors, corrects and errors during practice, and verbal descriptions of learning pictures which we scored with the rubrics produced from the prework we did with the precision etachers.
+
+Taken together, these measures gave us a comprehensive picture of both accuracy and fluency across multiple types of tasks.
+:::
+
+## <small>Fluency</small>
+
+**Participant 1B:**
+
+::: center
+![](scc1B.png){fig-align="center" width="537"}
+:::
+
+::: notes
+visual inspection of 1B data
+:::
+
+## <small>Fluency</small>
+
+**Participant 2A:**
+
+::: center
+![](scc2A.png){fig-align="center" width="582"}
+:::
+
+::: notes
+visual inspection of 2A
+:::
+
+## <small>Fluency</small>
+
+<small>**Participant 3A:**</small>
+
+::: center
+![](SCC3A.png){fig-align="center" width="599"}
+:::
+
+::: notes
+Visual inspection of 3A
+:::
+
+## <small>Fluency</small>
+
+<small>**Participant 3B:**</small>
+
+::: center
+![](SCC3B.png){fig-align="center" width="555"}
+:::
+
+::: notes
+visual inspection for 3B
+:::
+
+## changes made? {.inverse background-color="#E0E0E0"}
+
+::: center
+![](change_fluency.png){fig-align="center" width="750"}
+:::
+
+::: notes
+**Resource Management** means Don’t waste time, money, or participant effort, design with feasibility in mind.
+
+**Continual Optimization** means Don’t stop at one version of the intervention, keep making it better.
+
+in terms of resource management I don't think you could get a more resource efficient teaching procedure than a 1 minute timing. This effectively balances effectiveness with feasibility.
+
+In the early weeks of the study, we were using scanned versions of the Melroe charts. Participants told me they were hard to read in that format, but at the time all I had were paper copies. Because of that, I think we lost some of the power of this one-minute intervention. Even so, we still saw results. For the next iteration, we’re re-creating all of her packet of charts on a digital platform so they’ll be crystal clear from the very first session.
+:::
+
+## <small>Verbal Scores</small>
+
+::: center
+![](image12.png)
+:::
+
+::: notes
+Each participant experienced level change moving from below beginner threshold to intermediate.
+
+Keep as is, no change.
+:::
+
+## changes made? {.inverse background-color="#E0E0E0"}
+
+::: center
+![](change_verbals.png){fig-align="center" width="731"}
+:::
+
+::: notes
+**Resource Management** means Don’t waste time, money, or participant effort, design with feasibility in mind.
+
+**Continual Optimization** means Don’t stop at one version of the intervention, keep making it better.
+
+This was a really simple way to just continually practice analyzing these charts I think all of our participants got a lot out of it, so this will remain in tact as is in the next iteration of the workshop.
+:::
+
+## <small>Application Check: Case Study</small>
+
+::: center
+![](image13.png)
+:::
+
+::: notes
+out of the four participants, only one actually mailed their chart back. And after quite a few email reminders, we eventually got a second chart scanned to us.
+
+The logic behind this measure was that they’re going to be watching these videos about the precision teaching process, doing weekly written and visual analyses of completed charts, so this task would be their chance to construct a chart themselves. The idea was that they’d get to watch it build across the weeks, almost like a structured form that prepared them for what it feels like to really be a precision teacher.
+
+But in practice, probably half of the students completed it no way to know if the other two did. And of those, the charts looked really different even though they had the same data, they picked different parts of the data to graph, they didn’t add notes, and they even skipped filling in labeled blanks. It was obvious this task wasn’t structured enough to get what we wanted to get out of it. Honestly, it wasn’t worth the amount of time it took to make the case study data. So, this measure will definitely be revised going forward.
+:::
+
+## changes made? {.inverse background-color="#E0E0E0"}
+
+::: center
+![](change_casestudy.png){fig-align="center" width="695"}
+:::
+
+::: notes
+**Resource Management** means Don’t waste time, money, or participant effort, design with feasibility in mind.
+
+**Continual Optimization** means Don’t stop at one version of the intervention, keep making it better.
+
+**Major Change:** we’re using R to simulate a learner with hidden math formulas that update based on your chosen strategies, with some randomness added so every group’s learner looks unique.
+
+**a.** Instead of just giving participants data each week with no guidance, they will now be expected to come to the session with that week’s data already graphed.
+
+**b.** At the session, participants will show the instructor their learning picture so far. The instructor will then ask them to make a decision based on their data. From the list of possible decisions, the instructor will simulate the next week’s data to reflect that choice. This means not all participants will have the same dataset—rather, the data will respond to their decisions. This is much more efficient than creating multiple separate five-week data sets.
+
+**c.** In addition to showing their learning picture live, participants will also submit their chart before logging in for the coaching session. This will culminate in a Week 5 “chart share,” where they present their completed chart. That way, the task remains a structured form but also mirrors a common practice in the precision teaching community.
+:::
+
+## <small>Application Check: Case Study</small>
+
+::: center
+![](image16.png)
+:::
+
+::: notes
+Here’s how the case study simulation works.
+
+At the very top, we have our ‘pretend learner.’ Think of this as a made-up student who has starting skills and makes mistakes in a realistic way. They aren’t a real child, but the computer gives them believable patterns of performance—sometimes better, sometimes worse, with a bit of variability like we’d expect in real life.
+
+We also built in a set of teaching strategies. Each strategy has rules about what usually happens if you apply it. For example, frequency building usually increases correct responses, error correction reduces mistakes, and adding more opportunities means faster progress.
+
+Now, in practice, this is what you’ll experience as students in the workshop:
+
+First, we give you Week 1 data to chart. Everyone starts with the same setup, but the computer adds a bit of randomness so each group’s data looks slightly different.
+
+Next, your group looks at your chart and decides on a teaching strategy to try.
+
+Once you decide, I run the computer program. In the background, R applies the rules for that strategy and generates a new week of data that reflects your choice.
+
+We repeat this cycle for five weeks. Each time, you get a new set of data to chart, you make another decision, and the computer updates your learner again.
+
+At the end, we’ll come together and share the charts, so you can compare how different decisions led to different learning patterns.
+
+So the simple version is: you chart, you decide, the computer responds with new data.
+:::
+
+## <small>Weekly Quiz</small>
+
+::: center
+![](image14.png){fig-align="center" width="798"}
+:::
+
+::: notes
+This measure ended up being removed because it didn’t really capture fluency. The quiz format was one open-ended question—‘describe the learning picture’—followed by four multiple-choice questions. Students could retake it until they got 100%.
+
+The problem was that in baseline, responses were really short, like ‘I don’t know’ or ‘it’s a graph,’ so times looked fast. But as students improved, their answers got longer and more detailed, which actually made completion times slower. So ironically, higher skill inflated the scores. On top of that, students often just guessed on the multiple-choice questions, because thier first attempt would be a few minutes then the next 3 attempts were under a minute so its really clear they werre just selecting responses until they were at 100%.
+:::
+
+## 
+
+::: center
+![](image15.png){width="1576"}
+:::
+
+::: notes
+Take away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts
+:::
+
+## changes made? {.inverse background-color="#E0E0E0"}
+
+::: center
+![](change_weeklyquizzes.png){fig-align="center" width="713"}
+:::
+
+::: notes
+**Resource Management** means Don’t waste time, money, or participant effort, design with feasibility in mind.
+
+**Continual Optimization** means Don’t stop at one version of the intervention, keep making it better.
+
+This was a bad measure, the validity of the measure is in question, but also, if were thinking of this in terms of resource management if students aren't even reading the quiz question it is defiantly a waist of time. For the next version, quizzes will be untimed, limited to one attempt, and scored only on written responses using a rubric.
+
+Take away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts
+:::
+
+## <small>Social Validity</small>
+
+::: center
+![](image21.png)
+:::
+
+## <small>Social Validity</small>
+
+::: center
+![](image22.png)
+:::
+
+## changes made? {.inverse background-color="#E0E0E0"}
+
+::: center
+![](no change.png){fig-align="center" width="687"}
+:::
+
+::: notes
+**Resource Management** means Don’t waste time, money, or participant effort, design with feasibility in mind.
+
+**Continual Optimization** means Don’t stop at one version of the intervention, keep making it better.
+:::
+
+## <small>Next Steps</small>
+
+::: center
+![](image20.png)
+:::
+
+::: notes
+where we’re headed next with this research program.
+
+First, we’re going to revise the materials. That means digging deeper into the literature, talking with experienced precision teachers, and really setting clear boundaries for the model in R so it’s solid from the start.
+
+Next, we’ll focus on recruitment. We plan to bring in more graduate students from the UO ABAO program to make sure we have enough participants to run this study well.
+
+Then, in January, we’ll launch the next study as an A–B design. This time, one group will go through all five weeks together. That setup is meant to address the attrition issues we saw in the pilot.
+
+After that, we’ll analyze the data with the MOST principles in mind—specifically continual optimization and resource management. In other words, we’ll look not only at whether it worked, but also how to refine and streamline it.
+
+And finally, once we’ve learned from this iteration, we’ll move into a full optimization phase where we test combinations of components more systematically.
+
+So, this next step is really about tightening up what we’ve already built, making it more feasible, and setting ourselves up for the larger optimization trial.
+:::
+
+## <small>Future Directions</small>
+
+<small>
+
+**Short-Term Goal:**Successfully complete the second pilot study to refine materials, procedures, and measures.
+
+**Mid-Term Goal:** Conduct an optimization trail to experimentally evaluate which behavioral education strategies are most effective in online instruction, and how they interact. This will extend beyond PT training to inform the design of evidence-based online ABA education more broadly.
+
+**Long-Term Goal:** Produce a packaged, optimized, and scalable online Precision Teaching workshop that graduate programs can adopt to address the PT training gap for pre-licensure BCBAs. </small>
+
+## **We’d Love Your Feedback!**
+
+<small>Please take a moment to complete our brief feedback survey. </small>
+
+::: center
+![](qrcode.png){fig-align="center"}
+:::
+
+<small>If you use the Standard Celeration Chart (SCC) and have deidentified charts you’d be willing to share as training materials, we’d love your help building our practice library. You can note your interest and leave your email address directly in the survey form.</small>

@@ -1,0 +1,89 @@
+---
+title: "studentresponses"
+format: html
+editor: visual
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(forcats)
+library(scales)
+
+dat <- read_csv("feedback_3pt_tidy.csv", show_col_types = FALSE) %>%
+  filter(!is.na(value_3pt))
+
+
+dat$response_3pt <- factor(
+  dat$value_3pt,
+  levels = c(1, 2, 3),
+  labels = c("Negative (1)", "Neutral (2)", "Positive (3)")
+)
+
+
+plot_dat <- dat %>%
+  group_by(group, question, response_3pt) %>%
+  summarise(n = n(), .groups = "drop_last") %>%
+  mutate(prop = n / sum(n)) %>%
+  ungroup()
+
+
+base_font <- "serif"      
+uo_green  <- "#154733"    
+uo_yellow <- "#FEE123"     
+uo_gray   <- "#9CA3AF"     
+
+
+make_group_plot <- function(g) {
+  ggplot(
+    plot_dat %>% filter(group == g),
+    aes(
+      x = fct_reorder(
+        question,
+        prop,
+        .fun = function(x) -sum(x[response_3pt == "Positive (3)"], na.rm = TRUE)
+      ),
+      y = prop,
+      fill = response_3pt
+    )
+  ) +
+    geom_col(width = 0.7) +
+    coord_flip() +
+    scale_fill_manual(
+      values = c(
+        "Negative (1)" = uo_gray,
+        "Neutral (2)"  = uo_yellow,
+        "Positive (3)" = uo_green
+      )
+    ) +
+    scale_y_continuous(labels = percent_format(accuracy = 1)) +
+    labs(
+      title = paste0(g, " (3-point scale)"),
+      x = NULL,
+      y = "Proportion of responses",
+      fill = "Response"
+    ) +
+    theme_minimal(base_family = base_font, base_size = 13) +
+theme(
+  legend.position = "right",
+  panel.grid.major.y = element_blank(),
+  panel.grid.minor = element_blank(),
+  plot.title = element_text(face = "bold"),
+  axis.text.y = element_text(color = "black", size = 13)  
+)
+}
+
+
+p_components <- make_group_plot("Components")
+p_impact     <- make_group_plot("Impact")
+
+
+print(p_components)
+print(p_impact)
+
+
+ggsave("components_3point.png", p_components, width = 9, height = 6, dpi = 300)
+ggsave("impact_3point.png",     p_impact,     width = 9, height = 6, dpi = 300)
+
+```

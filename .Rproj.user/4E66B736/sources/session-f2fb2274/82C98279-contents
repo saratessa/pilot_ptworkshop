@@ -1,0 +1,142 @@
+---
+title: "litreview"
+format: html
+editor: visual
+---
+
+```{r}
+# ---- Packages ----
+# install.packages(c("readr","dplyr","ggplot2"))  # if needed
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(grid)  # for unit()
+
+# ---- Read CSV ----
+# Required columns: Database, Search_Topic, Stage, Results
+df <- read_csv("search_results.csv", show_col_types = FALSE) %>%
+  mutate(Results = as.numeric(Results))
+
+# ---- Ordering ----
+db_order    <- c("ERIC", "PsychNet")
+stage_order <- c("Initial", "HigherEd", "HigherEd+Online")
+
+# Keep your exact topic strings; put "frequency building" first if present
+topics <- unique(df$Search_Topic)
+freq_idx <- which(grepl("^\\s*frequency\\b", topics, ignore.case = TRUE))
+topic_order <- if (length(freq_idx) == 1) c(topics[freq_idx], topics[-freq_idx]) else topics
+
+df <- df %>%
+  mutate(
+    Database     = factor(Database, levels = db_order),
+    Search_Topic = factor(Search_Topic, levels = topic_order),
+    Stage        = factor(Stage, levels = stage_order)
+  )
+
+# ---- X positions (no mixing inside each database) ----
+# [frequency building: Initial, HigherEd, HigherEd+Online] THEN
+# [guided notes/ASR:   Initial, HigherEd, HigherEd+Online]
+x_levels <- c(
+  paste(topic_order[1], stage_order, sep = " • "),
+  paste(topic_order[2], stage_order, sep = " • ")
+)
+
+df <- df %>%
+  mutate(
+    x_key = factor(paste(Search_Topic, Stage, sep = " • "), levels = x_levels)
+  )
+
+# ---- University of Oregon colors ----
+uo_green  <- "#154733"
+uo_yellow <- "#FEE123"
+topic_cols <- setNames(c(uo_green, uo_yellow)[seq_along(topic_order)], topic_order)
+
+# Legend labels use your exact query strings (in quotes)
+legend_labels <- setNames(
+  c('("frequency building")',
+    '("guided notes" OR "active student responding")')[seq_along(topic_order)],
+  topic_order
+)
+
+# ---- Base plot (serif ~ Times-like) ----
+p <- ggplot(df, aes(x = x_key, y = Results, fill = Search_Topic)) +
+  geom_col(width = 0.72) +
+  geom_text(aes(label = Results),
+            vjust = -0.35, size = 4, family = "serif") +
+  facet_grid(. ~ Database, scales = "free_y", switch = "x") +
+  scale_fill_manual(values = topic_cols, labels = legend_labels, name = NULL) +
+  # hide per-bar labels; show only big ERIC/PsychNet strips
+  scale_x_discrete(labels = rep("", length(x_levels))) +
+  labs(
+    y = "Number of results",
+    x = NULL
+  ) +
+  theme_minimal(base_family = "serif") +
+  theme(
+    panel.grid.major.x = element_blank(),
+    axis.text.x  = element_blank(),
+    axis.ticks.x = element_blank(),
+    strip.placement = "outside",
+    strip.background = element_rect(fill = NA, color = NA),
+    strip.text.x.bottom = element_text(face = "bold", size = 12),
+    legend.position = "top"
+  ) +
+  coord_cartesian(clip = "off")
+
+# ---- Callouts (1,2,3) above BOTH topic groups in EACH database ----
+anchors <- df %>%
+  arrange(Database, Search_Topic, Stage) %>%
+  group_by(Database, Search_Topic) %>%
+  mutate(callout_num = c("1","2","3")) %>%
+  ungroup()
+
+v_pad <- 0.06 * max(df$Results, na.rm = TRUE)
+
+p <- p +
+  geom_label(
+    data = anchors,
+    aes(x = x_key, y = Results + v_pad, label = callout_num),
+    inherit.aes = FALSE,
+    family = "serif",
+    size = 4,
+    label.size = 0.6,
+    label.padding = unit(0.12, "lines"),
+    fill = "white",
+    show.legend = FALSE
+  )
+
+# ---- Text-only lines in legend for 1/2/3 (no shapes, no title) ----
+# We add an invisible point layer to create a second legend, then hide its glyphs.
+legend_df <- data.frame(
+  Step = factor(c(
+    "1: initial search terms",
+    '2: AND (college OR university OR "higher education" OR undergraduate OR "postsecondary education")',
+    '3: AND ("online" or "virtual" or "distance learning")'
+  ), levels = c(
+    "1: initial search terms",
+    '2: AND (college OR university OR "higher education" OR undergraduate OR "postsecondary education")',
+    '3: AND ("online" or "virtual" or "distance learning")'
+  )),
+  x_key = df$x_key[1],
+  Results = min(df$Results, na.rm = TRUE) - 1  # off-plot
+)
+
+p <- p +
+  geom_point(
+    data = legend_df,
+    aes(x = x_key, y = Results, shape = Step),
+    inherit.aes = FALSE,
+    alpha = 0
+  ) +
+  scale_shape_discrete(name = NULL) +
+  guides(
+    fill  = guide_legend(order = 1),
+    shape = guide_legend(order = 2, override.aes = list(shape = NA, alpha = 0, size = 0))
+  )
+
+# ---- Print & Save ----
+print(p)
+ggsave("search_results_grouped_uo_text_legend.png", p, width = 12, height = 6.5, dpi = 300)
+
+
+```

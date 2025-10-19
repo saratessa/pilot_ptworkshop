@@ -1,0 +1,85 @@
+"0","library(readr)"
+"0","library(dplyr)"
+"2","G3;
+Attaching package: ‘dplyr’
+
+g"
+"2","G3;The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+g"
+"2","G3;The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+g"
+"0","library(ggplot2)"
+"0","library(scales)"
+"2","G3;
+Attaching package: ‘scales’
+
+g"
+"2","G3;The following object is masked from ‘package:readr’:
+
+    col_factor
+
+g"
+"0","library(tibble)"
+"0","library(ggrepel)"
+"0",""
+"0","df <- read_csv(""masters.csv"", show_col_types = FALSE)"
+"0",""
+"0","df <- df %>% mutate(online_or_hybrid = as.integer(online_or_hybrid))"
+"0",""
+"0","total <- nrow(df)"
+"0","online_yes <- sum(df$online_or_hybrid == 1L, na.rm = TRUE)"
+"0","in_person_complement <- total - online_yes"
+"0",""
+"0","pie_data <- tibble("
+"0","  label_key = c(""online"", ""in_person""),"
+"0","  display   = c(""online or hybrid programs"", ""in person programs""),"
+"0","  n         = c(online_yes, in_person_complement)"
+"0",") %>%"
+"0","  mutate("
+"0","    pct   = n / sum(n),"
+"0","    ypos  = cumsum(n) - n/2,"
+"0","    pct_lbl = percent(pct)"
+"0","  )"
+"0",""
+"0","uo_green  <- ""#154733"""
+"0","uo_yellow <- ""#FEE123"""
+"0",""
+"0","p <- ggplot(pie_data, aes(x = """", y = n, fill = label_key)) +"
+"0","  geom_col(width = 1, color = ""white"") +"
+"0","  coord_polar(theta = ""y"") +"
+"0","  scale_fill_manual("
+"0","    values = c(online = uo_yellow, in_person = uo_green),"
+"0","    labels = c(online = ""online or hybrid programs"", in_person = ""in person programs"")"
+"0","  ) +"
+"0","  labs("
+"0","    title = ""Masters Programs in ABA"","
+"0","    fill  = NULL"
+"0","  ) +"
+"0","  theme_void(base_size = 14, base_family = ""serif"") +"
+"0","  theme(legend.position = ""right"")"
+"0","p +"
+"0","  geom_text("
+"0","    data = subset(pie_data, label_key == ""online""),"
+"0","    aes(y = ypos, label = pct_lbl),"
+"0","    position = position_stack(vjust = 0.5),"
+"0","    size = 5,"
+"0","    family = ""serif"""
+"0","  ) +"
+"0","  geom_text_repel("
+"0","    data = subset(pie_data, label_key == ""in_person""),"
+"0","    aes(y = ypos, label = pct_lbl),"
+"0","    nudge_x = 0.9,           "
+"0","    direction = ""y"","
+"0","    segment.color = ""black"", "
+"0","    segment.size = 0.5,"
+"0","    box.padding = 0.25,"
+"0","    point.padding = 0.2,"
+"0","    size = 5,"
+"0","    family = ""serif"""
+"0","  )"

@@ -1,0 +1,47 @@
+participant ,week,condition,outcome
+1B,1,Baseline,2
+1B,2,Baseline,2
+1B,3,Baseline,4
+1B,4,Intervention,1
+1B,5,Intervention,1
+1B,6,Intervention,4
+1B,7,Intervention,1
+1B,8,Intervention,
+1B,12,Follow up,4
+2A,1,Baseline,1
+2A,2,Baseline,2
+2A,3,Baseline,4
+2A,4,Baseline,1
+2A,5,Baseline,3
+2A,6,Intervention,4
+2A,7,Intervention,
+2A,8,Intervention,3
+2A,9,Intervention,
+2A,10,Intervention,4
+2A,14,Follow up,
+3A,1,Baseline,1
+3A,2,Baseline,2
+3A,3,Baseline,3
+3A,4,Baseline,1
+3A,5,Baseline,3
+3A,6,Baseline,3
+3A,7,Baseline,3
+3A,8,Intervention,4
+3A,9,Intervention,1
+3A,10,Intervention,3
+3A,11,Intervention,
+3A,12,Intervention,2
+3A,16,Follow up,
+3B,1,Baseline,2
+3B,2,Baseline,4
+3B,3,Baseline,4
+3B,4,Baseline,3
+3B,5,Baseline,2
+3B,6,Baseline,3
+3B,7,Baseline,3
+3B,8,Intervention,2
+3B,9,Intervention,2
+3B,10,Intervention,3
+3B,11,Intervention,
+3B,12,Intervention,4
+3B,16,Follow up,

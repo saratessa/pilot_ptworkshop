@@ -1,0 +1,72 @@
+---
+title: "mastersprograms"
+format: html
+editor: visual
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(tibble)
+library(ggrepel)
+
+df <- read_csv("masters.csv", show_col_types = FALSE)
+
+df <- df %>% mutate(online_or_hybrid = as.integer(online_or_hybrid))
+
+total <- nrow(df)
+online_yes <- sum(df$online_or_hybrid == 1L, na.rm = TRUE)
+in_person_complement <- total - online_yes
+
+pie_data <- tibble(
+  label_key = c("online", "in_person"),
+  display   = c("online or hybrid programs", "in person programs"),
+  n         = c(online_yes, in_person_complement)
+) %>%
+  mutate(
+    pct   = n / sum(n),
+    ypos  = cumsum(n) - n/2,
+    pct_lbl = percent(pct)
+  )
+
+uo_green  <- "#154733"
+uo_yellow <- "#FEE123"
+
+p <- ggplot(pie_data, aes(x = "", y = n, fill = label_key)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  scale_fill_manual(
+    values = c(online = uo_yellow, in_person = uo_green),
+    labels = c(online = "online or hybrid programs", in_person = "in person programs")
+  ) +
+  labs(
+    title = "Masters Programs in ABA",
+    fill  = NULL
+  ) +
+  theme_void(base_size = 14, base_family = "serif") +
+  theme(legend.position = "right")
+p +
+  geom_text(
+    data = subset(pie_data, label_key == "online"),
+    aes(y = ypos, label = pct_lbl),
+    position = position_stack(vjust = 0.5),
+    size = 5,
+    family = "serif"
+  ) +
+  geom_text_repel(
+    data = subset(pie_data, label_key == "in_person"),
+    aes(y = ypos, label = pct_lbl),
+    nudge_x = 0.9,           
+    direction = "y",
+    segment.color = "black", 
+    segment.size = 0.5,
+    box.padding = 0.25,
+    point.padding = 0.2,
+    size = 5,
+    family = "serif"
+  )
+
+
+```
