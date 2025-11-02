@@ -478,7 +478,7 @@ The problem was that in baseline, responses were really short, like ‘I don’t
 :::
 
 ::: notes
-Take away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts
+To improve performance on the weekly quiz measure, we made them untimed and one attempt, removed multiple choice questions, and on the weekly video lessons we added stronger examples of clinical data on the SCC with the instructor providing a verbal model of describing the learning picture on two charts per lesson.
 :::
 
 ## Changes made? {.inverse background-color="#E0E0E0"}
