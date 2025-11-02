@@ -1,5 +1,20 @@
 {
   "presentation_scc2025.qmd": {
     "index.html": "4a8dc9b1"
+  },
+  "scdgraphs.qmd": {
+    "scdgraphs.html": "86d0a4fc"
+  },
+  "newlikerts.qmd": {
+    "newlikerts.html": "f8f45710"
+  },
+  "bargraphs.qmd": {
+    "bargraphs.html": "22ede6c5"
+  },
+  "litreview.qmd": {
+    "litreview.html": "5b391d8e"
+  },
+  "masters.qmd": {
+    "masters.html": "a7793a95"
   }
 }

@@ -157,7 +157,7 @@ p_time <- plot_mb_fixed(
   title    = "Time to 100% Accuracy",
   ylab     = "Time to 100% accuracy (minutes)",
   x_limits = c(1, 16),
-  y_limits = c(0, 15),
+  y_limits = c(0, 20),
   y_breaks = seq(0, 15, by = 3)   # less crowded: 0,3,6,9,12,15
 )
 p_time
@@ -188,7 +188,7 @@ p_attempts <- plot_mb_fixed(
   title    = "Number of Attempts",
   ylab     = "Attempts to reach 100%",
   x_limits = c(1, 16),
-  y_limits = c(0, 5),
+  y_limits = c(0, 7),
   y_breaks = 0:5
 )
 p_attempts

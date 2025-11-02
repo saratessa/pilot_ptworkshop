@@ -312,7 +312,7 @@ Taken together, these measures gave us a comprehensive picture of both accuracy 
 **Participant 1B:**
 
 ::: center
-![](scc1B.png){fig-align="center" width="537"}
+![](scc1B.png){fig-align="center" width="463"}
 :::
 
 ::: notes
@@ -324,7 +324,7 @@ visual inspection of 1B data
 **Participant 2A:**
 
 ::: center
-![](scc2A.png){fig-align="center" width="582"}
+![](scc2A.png){fig-align="center" width="502"}
 :::
 
 ::: notes
@@ -336,7 +336,7 @@ visual inspection of 2A
 <small>**Participant 3A:**</small>
 
 ::: center
-![](SCC3A.png){fig-align="center" width="599"}
+![](SCC3A.png){fig-align="center" width="517"}
 :::
 
 ::: notes
@@ -348,7 +348,7 @@ Visual inspection of 3A
 <small>**Participant 3B:**</small>
 
 ::: center
-![](SCC3B.png){fig-align="center" width="555"}
+![](SCC3B.png){fig-align="center" width="478"}
 :::
 
 ::: notes
@@ -400,7 +400,7 @@ This was a really simple way to just continually practice analyzing these charts
 ## <small>Application Check: Case Study</small>
 
 ::: center
-![](image13.png)
+![](image13.png){width="800"}
 :::
 
 ::: notes
@@ -462,7 +462,7 @@ So the simple version is: you chart, you decide, the computer responds with new 
 ## <small>Weekly Quiz</small>
 
 ::: center
-![](image14.png){fig-align="center" width="798"}
+![](attempts_time.png){fig-align="center" width="555"}
 :::
 
 ::: notes
@@ -474,7 +474,7 @@ The problem was that in baseline, responses were really short, like ‘I don’t
 ## 
 
 ::: center
-![](image15.png){width="1576"}
+![](quality_grapj.png){fig-align="center" width="800"}
 :::
 
 ::: notes
