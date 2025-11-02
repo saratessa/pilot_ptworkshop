@@ -18,7 +18,7 @@ participant ,week,condition,outcome
 2A,8,Intervention,3
 2A,9,Intervention,
 2A,10,Intervention,4
-2A,14,Follow up,
+2A,14,Follow up,5
 3A,1,Baseline,1
 3A,2,Baseline,2
 3A,3,Baseline,3
@@ -31,7 +31,7 @@ participant ,week,condition,outcome
 3A,10,Intervention,3
 3A,11,Intervention,
 3A,12,Intervention,2
-3A,16,Follow up,
+3A,16,Follow up,4
 3B,1,Baseline,2
 3B,2,Baseline,4
 3B,3,Baseline,4
@@ -44,4 +44,4 @@ participant ,week,condition,outcome
 3B,10,Intervention,3
 3B,11,Intervention,
 3B,12,Intervention,4
-3B,16,Follow up,
+3B,16,Follow up,6
