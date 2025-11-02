@@ -137,7 +137,7 @@ optimizing means achieving a balance of effectiveness against 1. affordability, 
 ## <small>**Our Research Line**</small>
 
 ::: center
-![](image5.png)
+![](outrschline.png){fig-align="center"}
 :::
 
 ::: notes
