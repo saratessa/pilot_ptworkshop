@@ -524,7 +524,7 @@ Take away the timing and adding stronger examples in the video lessons including
 ## <small>Next Steps</small>
 
 ::: center
-![](image20.png)
+![](updatedslide.png){fig-align="center"}
 :::
 
 ::: notes
