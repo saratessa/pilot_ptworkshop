@@ -35,9 +35,9 @@ These are the CEU objectives
 
 ## <small>**Problem Number One**</small>
 
-PT offers a measurement system that improves decision making quality of practitioners
+Precision Teaching offers a measurement system that improves the decision making quality of practitioners
 
-Studies suggest that PT can effectively improve skill acquisition in children with autism, leading to better retention, endurance, stability, and generalization of learned skills <small> (Wolking, 1980; White 2000; Mannion, 2022; Martinho et al., 2022).</small>
+Studies suggest that Precision Teaching can effectively improve skill acquisition in children with autism, leading to better retention, endurance, stability, and generalization of learned skills <small> (Wolking, 1980; White 2000; Mannion, 2022; Martinho et al., 2022).</small>
 
 ::: notes
 The first motivating problem of my work is that PT gives us a really strong measurement system that helps practitioners make better decisions. We know this from research, precision teachers are more engaged with program data so they make more responsive choices that benefit their clients.
@@ -514,7 +514,7 @@ Take away the timing and adding stronger examples in the video lessons including
 ## changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
-![](no change.png){fig-align="center" width="687"}
+![](no%20change.png){fig-align="center" width="687"}
 :::
 
 ::: notes
