@@ -213,9 +213,7 @@ So next were going to go more in detail about the design of each of these elemen
 
 **Asynchronous Materials: weekly video lessons**
 
-::: center
-![](image7.png)
-:::
+![](designofworkshop.png){fig-align="center"}
 
 :::: notes
 ::: center
@@ -357,7 +355,7 @@ Visual inspection of 3A
 visual inspection for 3B
 :::
 
-## changes made? {.inverse background-color="#E0E0E0"}
+## Changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
 ![](change_fluency.png){fig-align="center" width="750"}
@@ -382,10 +380,10 @@ In the early weeks of the study, we were using scanned versions of the Melroe ch
 ::: notes
 Each participant experienced level change moving from below beginner threshold to intermediate.
 
-Keep as is, no change.
+So no change was made to this measure in the second iteration.
 :::
 
-## changes made? {.inverse background-color="#E0E0E0"}
+## Changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
 ![](change_verbals.png){fig-align="center" width="731"}
@@ -413,7 +411,7 @@ The logic behind this measure was that they’re going to be watching these vide
 But in practice, probably half of the students completed it no way to know if the other two did. And of those, the charts looked really different even though they had the same data, they picked different parts of the data to graph, they didn’t add notes, and they even skipped filling in labeled blanks. It was obvious this task wasn’t structured enough to get what we wanted to get out of it. Honestly, it wasn’t worth the amount of time it took to make the case study data. So, this measure will definitely be revised going forward.
 :::
 
-## changes made? {.inverse background-color="#E0E0E0"}
+## Changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
 ![](change_casestudy.png){fig-align="center" width="695"}
@@ -483,7 +481,7 @@ The problem was that in baseline, responses were really short, like ‘I don’t
 Take away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts
 :::
 
-## changes made? {.inverse background-color="#E0E0E0"}
+## Changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
 ![](change_weeklyquizzes.png){fig-align="center" width="713"}
@@ -511,7 +509,7 @@ Take away the timing and adding stronger examples in the video lessons including
 ![](image22.png)
 :::
 
-## changes made? {.inverse background-color="#E0E0E0"}
+## Changes made? {.inverse background-color="#E0E0E0"}
 
 ::: center
 ![](no%20change.png){fig-align="center" width="687"}

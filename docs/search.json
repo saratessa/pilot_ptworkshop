@@ -95,7 +95,7 @@
     "href": "index.html#design-of-the-workshop-1",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
     "section": "Design of The Workshop",
-    "text": "Design of The Workshop\nAsynchronous Materials: weekly video lessons\n\n\n\n\n\nWe created five instructional videos, and each one had lessons and activities adapted from The Precision Teaching Book by Kubina and Yurich. In each video, we also built in a section that used Direct Instruction scripts from Cancio and Maloney. And to make it interactive, we used Panopto so participants had to respond in the moment rather than just passively watch.\nAlong with the videos, we gave students guided notes packets that matched the video scripts—but with key parts left blank. That way, as they watched, they had to fill in the missing pieces, which kept them actively engaged with the content."
+    "text": "Design of The Workshop\nAsynchronous Materials: weekly video lessons\n\n\n\nWe created five instructional videos, and each one had lessons and activities adapted from The Precision Teaching Book by Kubina and Yurich. In each video, we also built in a section that used Direct Instruction scripts from Cancio and Maloney. And to make it interactive, we used Panopto so participants had to respond in the moment rather than just passively watch.\nAlong with the videos, we gave students guided notes packets that matched the video scripts—but with key parts left blank. That way, as they watched, they had to fill in the missing pieces, which kept them actively engaged with the content."
   },
   {
     "objectID": "index.html#design-of-the-workshop-2",
@@ -164,22 +164,22 @@
     "objectID": "index.html#changes-made",
     "href": "index.html#changes-made",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
-    "section": "changes made?",
-    "text": "changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nin terms of resource management I don’t think you could get a more resource efficient teaching procedure than a 1 minute timing. This effectively balances effectiveness with feasibility.\nIn the early weeks of the study, we were using scanned versions of the Melroe charts. Participants told me they were hard to read in that format, but at the time all I had were paper copies. Because of that, I think we lost some of the power of this one-minute intervention. Even so, we still saw results. For the next iteration, we’re re-creating all of her packet of charts on a digital platform so they’ll be crystal clear from the very first session."
+    "section": "Changes made?",
+    "text": "Changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nin terms of resource management I don’t think you could get a more resource efficient teaching procedure than a 1 minute timing. This effectively balances effectiveness with feasibility.\nIn the early weeks of the study, we were using scanned versions of the Melroe charts. Participants told me they were hard to read in that format, but at the time all I had were paper copies. Because of that, I think we lost some of the power of this one-minute intervention. Even so, we still saw results. For the next iteration, we’re re-creating all of her packet of charts on a digital platform so they’ll be crystal clear from the very first session."
   },
   {
     "objectID": "index.html#verbal-scores",
     "href": "index.html#verbal-scores",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
     "section": "Verbal Scores",
-    "text": "Verbal Scores\n\n\n\n\nEach participant experienced level change moving from below beginner threshold to intermediate.\nKeep as is, no change."
+    "text": "Verbal Scores\n\n\n\n\nEach participant experienced level change moving from below beginner threshold to intermediate.\nSo no change was made to this measure in the second iteration."
   },
   {
     "objectID": "index.html#changes-made-1",
     "href": "index.html#changes-made-1",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
-    "section": "changes made?",
-    "text": "changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nThis was a really simple way to just continually practice analyzing these charts I think all of our participants got a lot out of it, so this will remain in tact as is in the next iteration of the workshop."
+    "section": "Changes made?",
+    "text": "Changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nThis was a really simple way to just continually practice analyzing these charts I think all of our participants got a lot out of it, so this will remain in tact as is in the next iteration of the workshop."
   },
   {
     "objectID": "index.html#application-check-case-study",
@@ -192,8 +192,8 @@
     "objectID": "index.html#changes-made-2",
     "href": "index.html#changes-made-2",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
-    "section": "changes made?",
-    "text": "changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nMajor Change: we’re using R to simulate a learner with hidden math formulas that update based on your chosen strategies, with some randomness added so every group’s learner looks unique.\na. Instead of just giving participants data each week with no guidance, they will now be expected to come to the session with that week’s data already graphed.\nb. At the session, participants will show the instructor their learning picture so far. The instructor will then ask them to make a decision based on their data. From the list of possible decisions, the instructor will simulate the next week’s data to reflect that choice. This means not all participants will have the same dataset—rather, the data will respond to their decisions. This is much more efficient than creating multiple separate five-week data sets.\nc. In addition to showing their learning picture live, participants will also submit their chart before logging in for the coaching session. This will culminate in a Week 5 “chart share,” where they present their completed chart. That way, the task remains a structured form but also mirrors a common practice in the precision teaching community."
+    "section": "Changes made?",
+    "text": "Changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nMajor Change: we’re using R to simulate a learner with hidden math formulas that update based on your chosen strategies, with some randomness added so every group’s learner looks unique.\na. Instead of just giving participants data each week with no guidance, they will now be expected to come to the session with that week’s data already graphed.\nb. At the session, participants will show the instructor their learning picture so far. The instructor will then ask them to make a decision based on their data. From the list of possible decisions, the instructor will simulate the next week’s data to reflect that choice. This means not all participants will have the same dataset—rather, the data will respond to their decisions. This is much more efficient than creating multiple separate five-week data sets.\nc. In addition to showing their learning picture live, participants will also submit their chart before logging in for the coaching session. This will culminate in a Week 5 “chart share,” where they present their completed chart. That way, the task remains a structured form but also mirrors a common practice in the precision teaching community."
   },
   {
     "objectID": "index.html#application-check-case-study-1",
@@ -220,8 +220,8 @@
     "objectID": "index.html#changes-made-3",
     "href": "index.html#changes-made-3",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
-    "section": "changes made?",
-    "text": "changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nThis was a bad measure, the validity of the measure is in question, but also, if were thinking of this in terms of resource management if students aren’t even reading the quiz question it is defiantly a waist of time. For the next version, quizzes will be untimed, limited to one attempt, and scored only on written responses using a rubric.\nTake away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts"
+    "section": "Changes made?",
+    "text": "Changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better.\nThis was a bad measure, the validity of the measure is in question, but also, if were thinking of this in terms of resource management if students aren’t even reading the quiz question it is defiantly a waist of time. For the next version, quizzes will be untimed, limited to one attempt, and scored only on written responses using a rubric.\nTake away the timing and adding stronger examples in the video lessons including within each video lesson walking though/ verbal model of two clinical charts"
   },
   {
     "objectID": "index.html#social-validity",
@@ -241,8 +241,8 @@
     "objectID": "index.html#changes-made-4",
     "href": "index.html#changes-made-4",
     "title": "Developing and Pilot Testing a 5-Week Precision Teaching Workshop",
-    "section": "changes made?",
-    "text": "changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better."
+    "section": "Changes made?",
+    "text": "Changes made?\n\n\n\n\n\n\n\n\nResource Management means Don’t waste time, money, or participant effort, design with feasibility in mind.\nContinual Optimization means Don’t stop at one version of the intervention, keep making it better."
   },
   {
     "objectID": "index.html#next-steps",
