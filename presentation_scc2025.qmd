@@ -503,10 +503,20 @@ Take away the timing and adding stronger examples in the video lessons including
 ![](image21.png)
 :::
 
+::: notes
+|  |
+|----|
+| Following participation in our pilot study,all respondents rated the utility of key instructional components (live and recorded coaching, guided notes, and one-page review sheets )as positive on a 3-point scale (negative, neutral, positive). |
+:::
+
 ## <small>Social Validity</small>
 
 ::: center
 ![](image22.png)
+:::
+
+::: notes
+Participant feedback reflects strong endorsement across all domains, with predominantly positive ratings (green) for satisfaction, confidence, and real-world application of Precision Teaching methods. Most respondents reported discussing workshop content with peers and expressed high likelihood of recommending the series. Some exceptions include neutral ratings in participants’ confidence in applying what they learned over the course of the study, which suggests areas for refinement in the second phase of the study. 
 :::
 
 ## Changes made? {.inverse background-color="#E0E0E0"}
