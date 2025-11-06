@@ -309,7 +309,7 @@ Taken together, these measures gave us a comprehensive picture of both accuracy 
 
 ## <small>Fluency</small>
 
-**Participant 1B:**
+<small>**Participant 1B:**</small>
 
 ::: center
 ![](scc1B.png){fig-align="center" width="463"}
@@ -327,7 +327,7 @@ Timings were 1 minute, and the participants were instructed to look at a SCC wit
 
 ## <small>Fluency</small>
 
-**Participant 2A:**
+<small>**Participant 2A:**</small>
 
 ::: center
 ![](updated chart.png){fig-align="center" width="444"}
