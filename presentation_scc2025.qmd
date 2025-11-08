@@ -42,7 +42,7 @@ Studies suggest that Precision Teaching can effectively improve skill acquisitio
 ::: notes
 The first motivating problem of my work is that PT gives us a really strong measurement system that helps practitioners make better decisions. We know this from research, precision teachers are more engaged with program data so they make more responsive choices that benefit their clients.
 
-Well how is this a problem? its a problem because even though it’s this powerful system, PT and the use of the Standard Celeration Chart aren’t part of the BACB task list. So, it usually doesn’t get taught in graduate programs. Which means most pre-licensure BCBAs are entering the field without this tool in their training.
+Well how is this a problem? its a problem because even though it’s this powerful system, PT and the use of the Standard Celeration Chart aren’t part of the BACB test outline. So, it usually doesn’t get taught in graduate programs. Which means most pre-licensure BCBAs are entering the field without this tool in their training.
 :::
 
 ## <small> Problem Number Two</small>
@@ -56,13 +56,15 @@ As a field we have strong research-based and evidence-based instructional strate
 :::
 
 ::: notes
-This visual is meant to show the gap in the research. What you’re looking at are search results from two databases. The yellow bars are guided notes—also called ASR or active student responding—and the green bars are frequency building.
+This visual is meant to show the gap in the research. What you’re looking at are search results from two databases. The yellow bars are guided notes or ASR (active student responding) and the green bars are frequency building.
 
-‘A’ is the initial search. ‘B’ is when we narrow it to articles in college or university settings. And ‘C’ is when we add in the online space.
+‘A’ is the initial search. ‘B’ is when we narrow it to articles in college or university settings. And ‘C’ is when we add in the online component.
 
-So you can see, as soon as we get to online instruction, there’s a huge drop-off. There’s really a dearth of research using these kinds of behavioral education methods in online settings.
+So you can see, as soon as we get to online instruction, there’s a huge drop-off.
 
-There is a clear gap in the research but You might wonder why this is a problem
+since this search we have actually done screening across four data bases and found only 4 studies in total meeting criteria across both startles.
+
+There’s a really clear gap in the research but You might wonder why this is a problem.
 :::
 
 ## <small>**Why is This a Problem?**</small>
@@ -80,7 +82,9 @@ Because of that, it’s very possible this number is actually an underestimate.
 
 I pulled the data in two ways—first by looking at the ABAI website for programs with accreditation or seeking accreditation, and then by doing a Google search for ‘ABA master’s programs’ and going about five pages deep, making sure not to double count. And if it wasn’t obvious whether a program was online, hybrid, or in person, I emailed them directly to check.
 
-So, given all of that, it’s probably conservative. But even so, at least 54% of pre-licensure BCBAs are doing their training online—and yet we have very little in the way of evidence-based instructional strategies designed specifically for that context.
+So, given all of that, it’s probably conservative. But even so, at least 54% of pre-licensure BCBAs are doing their training online
+
+and yet we have very little in the way of evidence-based instructional strategies designed specifically for that context.
 :::
 
 ## **Aims of This Research Line:**
@@ -93,9 +97,11 @@ So, given all of that, it’s probably conservative. But even so, at least 54% o
 In order to address both of these problems we want to\
 create an optimized and scalable entry level training that can be adopted by online graduate programs or serve as a stand alone module for pre-licensure BCBAs
 
-Research these strategies in the online context to Learn the independent and interaction effects of these under-researched promising behavioral education strategies for online graduate programs 
+Research these strategies in the online context to Learn the independent and combined effects of these under-researched promising behavioral education strategies for online graduate programs 
 
-demonstrate the use of a validated implementation science framework in the development of training programs for prelicensure BCBA’s 
+demonstrate the use of a validated implementation science framework in the development of training programs for pre-licensure BCBA’s 
+
+so that last piece ill talk about next, the implementation science framework.
 :::
 
 ## 
@@ -105,13 +111,13 @@ demonstrate the use of a validated implementation science framework in the devel
 :::
 
 ::: notes
-This is the traditional way researchers evaluate a treatment package, this approach can tell you if this package has an effect.
+This is the traditional way researchers evaluate a treatment package, this approach can tell you if this intervention package has an effect.
 
-If were using our entry level training as an example the components that go into this are ASR/Guided notes, a on-page review each week, an application case study, and live coaching which includes frequency building activities.
+If were using our entry level training as an example the components that go into this are ASR/Guided notes, a one-page review each week, an application case study, and live coaching which includes frequency building activities.
 
-But eventhough using this traditional apprpoach to evaluate our workshop can tell us whether or not it has an effect, it cannot tell us 1. Which components are making positive contributions to the outcome 2. Whether the inclusion of one component has an impact on another. 
+But if we used this traditional approach to evaluate our workshop it would tell us whether or not it has an effect, but it will not tell us 1. Which components are making positive contributions to the outcome 2. Whether the inclusion of one component has an impact on another. 
 
-its possible one component could drive the whole effect, and another can be removed for optimization, or the inclusion of one component influences the effectiveness of another. This all matters if we want our workshop to be easily scalable and easily adopted by online masters programs.
+its possible one component could drive the whole effect, and another can be removed for optimization, or the inclusion of one component influences the effectiveness of another. This all matters if we want our workshop to be easily scalable and easily adopted by online programs.
 :::
 
 ------------------------------------------------------------------------
@@ -123,15 +129,29 @@ its possible one component could drive the whole effect, and another can be remo
 :::
 
 ::: notes
-this is the multiphase optimization strategy (MOST)
+this is why we are using the multiphase optimization strategy (MOST)
 
-\[walk through the entire flow chart and explain the importance of the continual optimization principle and the resource management principle because those are two points that run throughout each stage and will be highlighted in this talk.
+preparation, optimization, evaluation stages with example activities you do in those stages listed
 
-Talk about how from a behavior analysts POV the instructional design and data based decision making will live in the preparation stage and then the optimization stage could be a component analysis. \]
+the continual optimization principle
+
+resource management principle
+
+\*those are two points that run throughout each stage and will be highlighted in this talk by demi
+
+From a behavior analysts POV the instructional design and data based decision making will live in the preparation stage and then the optimization stage could be a component analysis study.
 
 Following the validated implementation science framework, MOST, allows you to first optimize the intervention before evaluating it.
 
-optimizing means achieving a balance of effectiveness against 1. affordability, 2. scalability, and 3. efficiency. The result is interventions that eliminate inactive and unnecessary components, are practical to implement, and offer a good value.
+optimizing means achieving a balance of effectiveness against
+
+1\. affordability,
+
+2\. scalability, and
+
+3\. efficiency.
+
+The result is interventions that eliminate inactive and unnecessary components, are practical to implement, and offer a good value.
 :::
 
 ## <small>**Our Research Line**</small>
@@ -143,10 +163,10 @@ optimizing means achieving a balance of effectiveness against 1. affordability, 
 ::: notes
 so this is that MOST framework with our research initiative inside of it. All of the data we are reporting today is from that first preparation stage and will demonstrate how we designed and pilot tested our PT workshop then used the resource management principle and continual optimization principle to refine the design as we gear up for our second pilot study.
 
-The optimization stage will be the work I conduct for my dissertation which will be a factorial experiment and currently we believe the two factors we will select for intervention will be the ASR (guided notes) and Live coaching (frequency building intervention).
+The optimization stage will be the work I conduct for my dissertation which will be a group design, a factorial experiment with the two factors being the ASR/guided notes and Live coaching/ frequency building intervention.
 
 \
-Following that work we will decide if this optimized intervention is expected to be sufficiently effective and if no follow resource management principle and go back in to preparation and if yes we will move on to evaluating 
+Following that work we will decide if this optimized intervention is expected to be sufficiently effective (see diamond) and if no follow resource management principle and go back in to preparation and if yes we will move on to evaluating 
 :::
 
 ## <small>Zooming into The Preparation Stage</small>
@@ -156,7 +176,7 @@ Following that work we will decide if this optimized intervention is expected to
 :::
 
 ::: notes
-The rest of this presentation is going to sit in the preparation stage of the MOST framework. I’ll walk through the work we’ve done so far—which has really been a lot of pre-work: designing, sourcing, and adapting materials. Then I’ll talk about how we piloted the workshop, the kinds of measures we collected, and how we used those to make data-informed revisions. And finally, I’ll describe what those revisions look like before we move forward for our second pilot study.
+The rest of this presentation is going to sit in the preparation stage of the MOST framework. I'll walk through the work we did at the outset (his included designing, sourcing, and adapting materials), then demi will walk through our pilot study data and how we've refined components as we prepare for our second pilot.
 :::
 
 ## <small>**Design of The Workshop**</small>
@@ -170,7 +190,13 @@ The rest of this presentation is going to sit in the preparation stage of the MO
 ::: notes
 **Setting Verbal Fluency Standards:**
 
-We recruited 3 precision teachers- I asked precision teachers who were trained and skilled but used PT at differtent levels / in different contexts. One was a BCBA who wasn't regularly charting in his practice but works frequently in school knows how to chart fluently and is trained in PT. One was a PhD doing research in precision teaching, and one was a practitioner with 5 years direct precision teaching and coaching other precision teachers.
+We recruited 3 precision teachers who were trained and skilled but used PT at differtent levels / in different contexts.
+
+One was a BCBA who wasn't charting daily in his practice but frequently worked in school on consult where he would incorporate the chart and teach staff to chart knows how to chart fluently and is trained in PT.
+
+One was a PhD doing research in precision teaching
+
+and one was a practitioner with 5+ years direct work precision teaching both school and clinc and coaches other precision teachers
 
 Each PT-er Viewed 3 SCCs each and I took a 1-min verbal sample of them describing the learning picture and identifying as many elements of the chart as they could
 
@@ -178,9 +204,9 @@ Verbal descriptions were analyzed at two levels:
 
 • Quantitative level or how many elements per minute were listed (this ranged from 13 to 19 on average)
 
-• Descriptive level or what terminology was used, did the PT-ers make judgements on what changes they would program or do any prediction about how the program would progress based on the data they saw
+• Descriptive level or what terminology was used, did the PT-ers make judgement on what changes they would program or do any prediction about how the program would progress based on the data they saw
 
-Based on this, we created a rubric to score participants within three ranges beginners (7-10 rubric score) intermediate (11-16 rubric score) and advanced (17-21 rubric score)
+Based on these verbal samples, we created a rubric to score participants within three ranges beginners (7-10 rubric score) intermediate (11-16 rubric score) and advanced (17-21 rubric score)
 :::
 
 ## <small>Online Instruction</small>
@@ -190,7 +216,17 @@ Based on this, we created a rubric to score participants within three ranges beg
 :::
 
 ::: notes
-Our workshop was 100% remote, we used the LMS canvas as well as zoom video conferencing. Each week participants logged onto their canvas course during baseline they logged on and took a weekly quiz, once they entered the workshop they logged on, watched a video lesson, engaged with a case study on the canvas shell, and then attended a scheduled zoom meeting. Were going to go over how the material for this was designed, sourced or adapted.
+Our workshop was 100% remote, we used the LMS canvas as well as zoom video conferencing.
+
+Each week participants logged onto their canvas course during baseline they logged on and took a weekly quiz
+
+once they entered the workshop they logged on
+
+watched a video lesson
+
+charted with a case study data (application task)
+
+and then they attended a scheduled zoom meeting where we went over a 1 page review of that weeks lesson and then did the frequency building activities
 :::
 
 ## <small>canvas module structure</small>
@@ -219,7 +255,7 @@ So next were going to go more in detail about the design of each of these elemen
 ::: center
 We created five instructional videos, and each one had lessons and activities adapted from *The Precision Teaching Book* by Kubina and Yurich. In each video, we also built in a section that used Direct Instruction scripts from Cancio and Maloney. And to make it interactive, we used Panopto so participants had to respond in the moment rather than just passively watch.
 
-Along with the videos, we gave students guided notes packets that matched the video scripts—but with key parts left blank. That way, as they watched, they had to fill in the missing pieces, which kept them actively engaged with the content.
+Along with the videos, we gave students guided notes packets that matched the video scripts but with key parts left blank. That way, as they watched, they had to fill in the missing pieces, which kept them actively engaged with the content.
 :::
 ::::
 
@@ -232,7 +268,7 @@ Along with the videos, we gave students guided notes packets that matched the vi
 :::
 
 ::: notes
-Each participant was mailed a guided notes packet which followed the scripts of those \~30 minute weekly video lessons and they were also given a handful of daily per minute paper charts.
+These are the guided notes they were mailed and they were also given a handful of daily per minute paper charts and a self addressed stamp for them to send the case study back to me after
 :::
 
 ## <small>**Design of The Workshop**</small>
@@ -244,7 +280,15 @@ Each participant was mailed a guided notes packet which followed the scripts of 
 :::
 
 ::: notes
-Now, the case study I talked about earlier. This was an independent application task. Participants were mailed blank standard celeration charts and each week of the workshop they were given data from a “case study client” participants were expected to graph this data on their own without feedback and we would score their completed chart with 5 weeks of data at the end of the study. To create a structured form that would anchor the workshop, and try to ensure skills were applied in authentic context, I first consulted with BCBAs specializing in verbal behavior and created a hypothetical VB-MAPP. Using an AI model, I generated plausible datasets and then refined them with expert clinicians
+Now, the case study I talked about earlier. This was an independent application task.
+
+Participants were mailed blank standard celeration charts
+
+each week of the workshop they were given data from a “case study client” participants were expected to graph this data on their own without feedback and we would score their completed chart with 5 weeks of data at the end of the study.
+
+The idea was to create a structured form that would anchor the workshop, and try to have them apply the skills in context.
+
+To create the data, I first consulted with two BCBAs who specialize in verbal behavior and created a hypothetical VB-MAPP. Using an AI model, I generated plausible datasets and then refined them with expert clinicians.
 :::
 
 ## <small>**Synchronous Materials: Structured coaching sessions**</small>
@@ -253,28 +297,36 @@ Now, the case study I talked about earlier. This was an independent application 
 ![](coaching.png)
 :::
 
-::: notes
-For the live coaching sessions, we kept a really consistent structure each week. After participants had finished that week’s video lesson and quiz, we’d meet together. I’d start by giving them a one-page review of the video, and then we’d do a quick Q&A where they could bring up any questions or things that weren’t clear.
+:::: notes
+::: center
+For the live coaching sessions, we kept a really consistent structure each week. After participants had finished that week’s video lesson and quiz, we’d meet together.
 
-From there, we moved into practice activities—using Melroe’s fluency training materials for chart-reading drills, and Brown’s *Precision Decisions* guide to work through decision-making frameworks. We practiced skills like see/say corrects over errors and see/say timing floors.
+I’d start by giving them a one-page review of the video, and then we’d do a quick Q&A where they could bring up any questions or things that weren’t clear.
 
-At the end of each session, I’d bring in a real chart donated by a clinician and precision teacher that they hadn’t seen before. Participants were asked to describe the learning picture, and I recorded and transcribed their responses. Those verbal descriptions were later scored using a rubric I developed from earlier pre-work analyzing how experienced precision teachers describe learning pictures.
+From there, we moved into practice activities
+
+using Melroe’s fluency training materials for chart-reading drills, and Brown’s *Precision Decisions* guide to work through decision-making frameworks. We practiced skills like see/say corrects over errors and see/say timing floors.
+
+At the end of each session, I’d bring up a real chart donated by a clinician and precision teacher that they hadn’t seen before. Participants were asked to describe the learning picture, and I recorded and transcribed their responses. Those verbal descriptions were later scored using a rubric I developed from earlier pre-work analyzing how experienced precision teachers describe learning pictures.
 :::
+::::
 
-## <small>Pilot Study 1</small>
+## <small>**Pilot Study 1**</small>
 
 ::: center
 ![](full%20timeline.png)
 :::
 
 ::: notes
-Multiple Baseline Design
+we used a Multiple Baseline Design
 
 Participants were students in University of Oregon's Applied Behavior Analysis (ABA) Master of Science program.
 
 Nine students were recruited for this study, two withdrew to participate in MSI, and 3 more withdrew during baseline.
 
 Total N = 4 who we randomized into three “groups” so that participants started the PT workshop at different time points
+
+I'll pass it to demi to talk about our measures, data, and revisions
 :::
 
 ## <small>**Measures**</small>
@@ -330,7 +382,7 @@ Timings were 1 minute, and the participants were instructed to look at a SCC wit
 <small>**Participant 2A:**</small>
 
 ::: center
-![](updated chart.png){fig-align="center" width="444"}
+![](updated%20chart.png){fig-align="center" width="444"}
 :::
 
 ::: notes
@@ -529,7 +581,7 @@ Take away the timing and adding stronger examples in the video lessons including
 
 ::: notes
 |  |
-|----|
+|------------------------------------------------------------------------|
 | Following participation in our pilot study,all respondents rated the utility of key instructional components (live and recorded coaching, guided notes, and one-page review sheets )as positive on a 3-point scale (negative, neutral, positive). |
 :::
 
