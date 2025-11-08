@@ -137,7 +137,7 @@ preparation, optimization, evaluation stages with example activities you do in t
 
 **Continual Optimization principle** tells us to not stop at version one of the intervention, keep making it better.
 
-its a balance of both, you can think of them as counterweights, that force you to have to design carefully.
+its a balance of both, you can think of them as counterweights, that force you to have to design carefully
 
 \*those are two points that run throughout each stage and will be highlighted in this talk by demi
 
