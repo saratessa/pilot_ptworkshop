@@ -5,7 +5,6 @@ Demi Fragale MS BCBA-LBA NY"
 output-file: index.html       
 format:
   revealjs:
-      show-notes: true
     theme: [styles.scss]
     transition: slide
     footer: "University of Oregon, College of Education"
