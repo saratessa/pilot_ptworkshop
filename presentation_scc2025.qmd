@@ -583,7 +583,7 @@ Take away the timing and adding stronger examples in the video lessons including
 
 ::: notes
 |  |
-|------------------------------------------------------------------------|
+|----|
 | Following participation in our pilot study,all respondents rated the utility of key instructional components (live and recorded coaching, guided notes, and one-page review sheets )as positive on a 3-point scale (negative, neutral, positive). |
 :::
 
